@@ -67,7 +67,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   };
 
   const opts = {
-    height: "90%",
+    height: "85%",
     width: "100%",
     playerVars: { autoplay: 1 },
   };
@@ -108,8 +108,7 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
       </div>
       {trailerUrl && (
         <div className="trailer">
-          <span onClick={closeTrailer}>
-            <FaLongArrowAltLeft size="1.8em" />
+          <span onClick={closeTrailer}> Go back
           </span>
           <Youtube videoId={trailerUrl} opts={opts} className="youtube" />
         </div>
