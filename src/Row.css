@@ -1,0 +1,110 @@
+.row {
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+.row h2 {
+  padding-left: 1.5rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+.row__posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding-top: 20px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0); 
+  border-radius: 20px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #3a49ae78); 
+  border-radius: 20px;
+}
+.row__posters::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, transparent, #3a49ae78, transparent, transparent);
+  cursor: pointer;
+}
+ .row__posters::-webkit-scrollbar {
+  display: none;
+}
+.row__posters:hover::-webkit-scrollbar {
+  display: block;
+}
+/* to work on this later */
+/* .row__posters.active{
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+} */
+.row__poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 180px;
+  margin: 0 0 0.7rem 0.2rem;
+  transition: transform 450ms ease-in-out, margin 450ms, box-shadow 600ms;
+}
+.row__poster:hover {
+  transform: scale(1.05);
+  margin: 0 0.5rem 0 .7rem;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.2)
+}
+.row__posterLarge {
+  max-height: 300px;
+}
+.row__posterLarge:hover {
+  transform: scale(1.04);
+  margin: 0 0.3rem 0 0.5rem;
+}
+.trailer {
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  width: 100%;
+  height: 100%;
+}
+.trailer span {
+  color: #fff;
+  position: relative;
+  left: 20px;
+  top: 12px;
+  cursor: pointer;
+}
+.youtube {
+  position: fixed;
+  top: 8%;
+  left: 0;
+  /* bottom: 0;
+  right: 0; */
+  z-index: 200;
+  margin: auto;
+}
+/* .go__right {
+  position: absolute;
+  right: 0;
+  z-index: 120;
+  top: 46px;
+  background: rgb(255, 255, 255);
+  height: 190px;
+}
+.go__left {
+  position: absolute;
+  z-index: 120;
+  left: -10px;
+  top: 46px;
+  background: rgb(255, 255, 255);
+  height: 190px;
+} */
