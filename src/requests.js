@@ -1,8 +1,10 @@
 const API_KEY = "77852d7723edac6732e1859e4bf1ed61";
 
 const requests = {
+  baseURL: "https://api.themoviedb.org/3",
+  img_url: "https://image.tmdb.org/t/p/original/",
   fetchTrending: `/trending/all/day?api_key=${API_KEY}`,
-  fetchNeflixOriginals: `/discover/movie?api_key=${API_KEY}&language=en-US`,
+  fetchNetflixOriginals: `/discover/movie?api_key=${API_KEY}&language=en-US`,
   fetchTopRated: `/movie/top_rated?api_key=${API_KEY}`,
   fetchCrime: `/discover/movie?api_key=${API_KEY}&with_genres=80`,
   fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,

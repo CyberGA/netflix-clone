@@ -1,4 +1,4 @@
-* {
-  margin: 0;
-  outline: none;
+.App {
+    width: 100%;
+    position: relative;
 }

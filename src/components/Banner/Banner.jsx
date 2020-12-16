@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
-import requests from "./requests";
 import "./banner.css";
 import { FaPlay } from "react-icons/fa";
 import { GoInfo } from "react-icons/go";
 import { BiPlusMedical } from "react-icons/bi";
+import requests from "../../requests";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchActionMovies);
+      const request = await fetch(
+        `${requests.baseURL}${requests.fetchActionMovies}`
+      ).then((res) => res.json());
+
       setMovie(
-        request.data.results[
-          Math.ceil(Math.random() * request.data.results.length - 1)
-        ]
+        request.results[Math.ceil(Math.random() * request.results.length - 1)]
       );
-      //console.log(Math.ceil(Math.random() * (request.data.results.length - 1)));
+
       return request;
     }
     fetchData();
   }, []);
 
-  //console.log(movie);
-
-  function truncate(str, n) {
+  function shortened(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + " . . . " : str;
   }
 
   return (
-    <header
+    <div
       className="banner"
       style={{
         backgroundSize: "cover",
@@ -38,29 +36,33 @@ function Banner() {
         backgroundPosition: "center center",
       }}
     >
-      {" "}
-      {/* -------------- background styles */}
-      
-      {/* title */}
+      {/* banner content */}
       <div className="banner__contents">
+        {/* title */}
         <h1 className="banner__title">
-          {movie?.title || movie?.name || movie?.original_name}
+          {movie?.title ||
+            movie?.name ||
+            movie?.original_name ||
+            movie?.original_title}
         </h1>
-
         {/* description */}
-        <h1 className="banner__overview">{truncate(movie?.overview, 100)}</h1>
+        <h1 className="banner__overview">{shortened(movie?.overview, 100)}</h1>
 
-        {/* div containing two btns */}
+        {/* div containing btns */}
         <div className="banner__btns">
-    <button className="banner_btn"><FaPlay size="0.8rem"/>{" "}Play</button>
-    <button className="banner_btn"><BiPlusMedical size="0.8rem"/>{" "}My List</button>
-          <button className="banner_btn"><GoInfo size="1rem"/>{" "}More info</button>
+          <button className="banner_btn">
+            <FaPlay size="0.8rem" /> Play
+          </button>
+          <button className="banner_btn">
+            <BiPlusMedical size="0.8rem" /> My List
+          </button>
+          <button className="banner_btn">
+            <GoInfo size="1rem" /> More info
+          </button>
         </div>
-
-        
       </div>
       <div className="banner__fadeBottom"></div>
-    </header>
+    </div>
   );
 }
 

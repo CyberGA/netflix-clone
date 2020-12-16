@@ -1,34 +1,31 @@
 import React from "react";
 import "./App.css";
-import Row from "./Row";
+import Banner from "./components/Banner/Banner";
+import Header from "./components/Header/Header";
+import Row from "./components/Row/Row";
 import requests from "./requests";
-import Banner from "./Banner";
-import Nav from './Nav'
 
-function App() {
+const App = () => {
   return (
-    <main>
-      <div className="App">
-      
-        <Nav />
-        <Banner />
-        <Row
+    <div className="App">
+      <Header />
+      <Banner />
+      <Row
           title="NETFLIX ORIGINALS"
-          fetchUrl={requests.fetchNeflixOriginals}
+          fetchUrl={requests.fetchNetflixOriginals}
           isLargeRow
-        />
-        <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-        <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-        <Row title="Crime" fetchUrl={requests.fetchCrime} />
-        <Row title="Anime" fetchUrl={requests.fetchAnime} />
-        <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-        <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} />
-        <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-        <Row title="Romance" fetchUrl={requests.fetchRomance} />
-        <Row title="Tv Movie" fetchUrl={requests.fetchTvMovie} />
-      </div>
-    </main>
+        id="net_0rig"/>
+      <Row title="Trending Now" fetchUrl={requests.fetchTrending} id="trend__now"/>
+      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} id="top__rate"/>
+      <Row title="Crime" fetchUrl={requests.fetchCrime} id="crime"/>
+      <Row title="Anime" fetchUrl={requests.fetchAnime} id="anime"/>
+      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} id="action__movie"/>
+      <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} id="comedy"/>
+      <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} id="horror"/>
+      <Row title="Romance" fetchUrl={requests.fetchRomance} id="romance"/>
+      <Row title="Tv Movie" fetchUrl={requests.fetchTvMovie} id="tv__movie"/>
+    </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,86 @@
+.header {
+  position: fixed;
+  background: transparent;
+  z-index: 10;
+  width: 100%;
+  min-width: fit-content;
+  height: auto;
+  padding: 20px;
+  transition: 500ms ease-in;
+}
+.header__darken {
+  background: rgba(0, 0, 0, 0.98);
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__brand {
+  width: 100px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav__home {
+  padding: 4px 15px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin-left: 40px;
+  transition: border 400ms;
+}
+.nav__home:hover {
+  cursor: pointer;
+  font-weight: 400;
+  border-color: rgb(205, 44, 44);
+}
+
+#sort {
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin-left: 10px;
+  transition: border 400ms;
+}
+#sort:hover {
+  border-color: rgb(205, 44, 44);
+}
+#sort option {
+  background: #000;
+}
+#sort option:hover {
+  background: #000;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.right .nav__smileu {
+    width: 25px;
+    object-fit: contain;
+    cursor: pointer;
+    margin-right: 8px;;
+  }
+  .right .bell {
+    margin-right: 30px;
+  }
+  .right .searchIcon, .right .giftIcon {
+    margin-right: 25px;
+  }
+  .notification {
+      cursor: pointer;
+      background: none;
+      transition: color 400ms;
+  }
+  .notification:hover {
+      color: rgb(205, 44, 44);
+  }
