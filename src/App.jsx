@@ -1,33 +1,27 @@
 import React from "react";
-import "./App.css";
-import Row from "./Row";
-import requests from "./requests";
-import Banner from "./Banner";
-import Nav from './Nav'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Browse from "./pages/browse";
+import Signin from "./pages/signin";
+import Signup from "./pages/signup";
+import * as ROUTES from "./constants/routes";
 
 function App() {
   return (
-    <main>
-      <div className="App">
-      
-        <Nav />
-        <Banner />
-        <Row
-          title="NETFLIX ORIGINALS"
-          fetchUrl={requests.fetchNeflixOriginals}
-          isLargeRow
-        />
-        <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-        <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-        <Row title="Crime" fetchUrl={requests.fetchCrime} />
-        <Row title="Anime" fetchUrl={requests.fetchAnime} />
-        <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-        <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} />
-        <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-        <Row title="Romance" fetchUrl={requests.fetchRomance} />
-        <Row title="Tv Movie" fetchUrl={requests.fetchTvMovie} />
-      </div>
-    </main>
+    <Router>
+      <Route exact path={ROUTES.HOME} component={Home} />
+
+      <Route exact path={ROUTES.SIGN_UP}>
+        <Signup />
+      </Route>
+
+      <Route exact path={ROUTES.SIGN_IN} component={Signin} />
+
+      <Route exact path={ROUTES.BROWSE} >
+        <Browse />
+      </Route>
+
+    </Router>
   );
 }
 
