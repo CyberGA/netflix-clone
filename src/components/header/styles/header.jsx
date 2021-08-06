@@ -33,6 +33,16 @@ export const Background = styled.div`
   // min-height: 100vh;
   z-index: 0;
 `;
+export const PlainBackground = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border-bottom: 8px solid #222;
+  object-fit: cover;
+  position: relative;
+  // min-height: 100vh;
+  z-index: 0;
+`;
 
 export const HomeBgGradient = styled.div`
   position: absolute;
@@ -48,13 +58,17 @@ export const Logo = styled.img`
   height: 36px;
   width: 134px;
   margin-right: 40px;
+  position: relative;
+  z-index: 9999;
 
   @media (min-width: 1449px) {
     height: 45px;
     width: 167px;
   }
 
-  @media only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
+  @media only screen and (min-width: 400px) and (max-width: 549px),
+    only screen and (min-width: 350px) and (max-width: 399px),
+    only screen and (max-width: 349px) {
     height: 24px;
     width: 40%;
   }
@@ -79,9 +93,11 @@ export const SigninBtn = styled(Link)`
     background: #f40612;
   }
 
-  @media only screen and (min-width: 400px) and (max-width: 549px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (max-width: 349px) {
-    font-size: .9rem;
+  @media only screen and (min-width: 400px) and (max-width: 549px),
+    only screen and (min-width: 350px) and (max-width: 399px),
+    only screen and (max-width: 349px) {
+    font-size: 0.9rem;
     // margin-top: .35rem;
-    padding: .4rem .5rem;
+    padding: 0.4rem 0.5rem;
   }
 `;

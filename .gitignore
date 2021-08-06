@@ -10,8 +10,7 @@
 
 # production
 /build
-/src/auth/firebase*
-/src/lib/firebase*
+/src/lib/secret.jsx
 
 # misc
 .DS_Store

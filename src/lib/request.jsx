@@ -1,4 +1,6 @@
-const API_KEY = process.env.REACT_APP_API_KEY
+import { TMDB_KEY } from "./secret";
+
+const API_KEY = TMDB_KEY;
 
 const requests = {
   baseURL: "https://api.themoviedb.org/3",

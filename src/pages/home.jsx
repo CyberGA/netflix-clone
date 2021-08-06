@@ -7,7 +7,9 @@ import { JumbotronContainer } from "../containers/jumbotron";
 import Feature from "../components/feature/index";
 import { HomeBgGradient } from "../components/header/styles/header";
 
+
 export default function Home() {
+  
   return (
     <>
       <HeaderContainer>
@@ -22,7 +24,7 @@ export default function Home() {
               Ready to watch? Enter your email to create or restart your
               membership.
             </OptForm.Text>
-            <OptForm.Input placeholder="Email Address" />
+            <OptForm.Input placeholder="Email Address"/>
             <OptForm.Button>Get Started</OptForm.Button>
           </OptForm>
         </Feature>
