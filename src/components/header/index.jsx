@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Link as HomeLinked } from "react-router-dom";
 import {
   PlainBackground,
@@ -8,41 +8,38 @@ import {
   SigninBtn,
 } from "./styles/header";
 
-function showBackground(props, children, bg) {
-    
-  
-  
-  if (
-    (document.baseURI.includes("signin") ||
-      document.baseURI.includes("signup")) &&
-    window.innerWidth <= 739
-  ) {
-    
-    return <PlainBackground {...props}>{children}</PlainBackground>;
-  }
-
-  return bg ? <Background {...props}>{children}</Background> : children;
-}
-
 export default function Header({ bg = true, children, ...props }) {
-  const [showBg, setShowBg] = useState(true);
+  const [dimensions, setDimensions] = React.useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
 
   function showBackground(props, children, bg) {
-    
-  
-  
     if (
       (document.baseURI.includes("signin") ||
         document.baseURI.includes("signup")) &&
-      window.innerWidth <= 739
+      dimensions.height <= 739
     ) {
-      
       return <PlainBackground {...props}>{children}</PlainBackground>;
     }
-  
+
     return bg ? <Background {...props}>{children}</Background> : children;
   }
 
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener("resize", showBackground);
+
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   return <>{showBackground(props, children, bg)}</>;
 }
