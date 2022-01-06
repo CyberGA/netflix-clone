@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link as HomeLinked } from "react-router-dom";
 import {
   PlainBackground,
@@ -9,11 +9,15 @@ import {
 } from "./styles/header";
 
 function showBackground(props, children, bg) {
+    
+  
+  
   if (
     (document.baseURI.includes("signin") ||
       document.baseURI.includes("signup")) &&
     window.innerWidth <= 739
   ) {
+    
     return <PlainBackground {...props}>{children}</PlainBackground>;
   }
 
@@ -21,6 +25,25 @@ function showBackground(props, children, bg) {
 }
 
 export default function Header({ bg = true, children, ...props }) {
+  const [showBg, setShowBg] = useState(true);
+
+  function showBackground(props, children, bg) {
+    
+  
+  
+    if (
+      (document.baseURI.includes("signin") ||
+        document.baseURI.includes("signup")) &&
+      window.innerWidth <= 739
+    ) {
+      
+      return <PlainBackground {...props}>{children}</PlainBackground>;
+    }
+  
+    return bg ? <Background {...props}>{children}</Background> : children;
+  }
+
+
   return <>{showBackground(props, children, bg)}</>;
 }
 
