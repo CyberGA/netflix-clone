@@ -37,8 +37,8 @@ export default function Signin() {
       });
   };
 
-  window.onresize = () => window.location.reload();
-
+  // window.onresize = () => window.location.reload();
+  
   return (
     <>
       <HeaderContainer>
