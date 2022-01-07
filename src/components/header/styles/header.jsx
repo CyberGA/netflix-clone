@@ -60,7 +60,7 @@ export const Logo = styled.img`
     only screen and (min-width: 350px) and (max-width: 399px),
     only screen and (max-width: 349px) {
     height: 24px;
-    width: 40%;
+    width: 80%;
   }
 `;
 
