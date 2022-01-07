@@ -47,7 +47,7 @@ export default function Signup() {
       });
   };
 
-  window.onresize = () => window.location.reload()
+  // window.onresize = () => window.location.reload()
 
   return (
     <>
