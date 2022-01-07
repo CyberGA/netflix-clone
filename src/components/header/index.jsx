@@ -1,21 +1,13 @@
 import React from "react";
 import { Link as HomeLinked } from "react-router-dom";
-import { Background, Logo, Container, SigninBtn } from "./styles/header";
-
-function showBackground(props, children, bg) {
-  if (
-    (document.baseURI.includes("signin") ||
-      document.baseURI.includes("signup")) &&
-    window.innerWidth <= 739
-  ) {
-    return children;
-  }
-
-  return bg ? <Background {...props}>{children}</Background> : children;
-}
-
+import {
+  Background,
+  Logo,
+  Container,
+  SigninBtn,
+} from "./styles/header";
 export default function Header({ bg = true, children, ...props }) {
-  return <>{showBackground(props, children, bg)}</>;
+  return bg ? <Background {...props}>{children}</Background> : children;
 }
 
 Header.Frame = function HeaderFrame({ children, ...props }) {
