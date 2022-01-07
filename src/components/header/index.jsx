@@ -1,46 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link as HomeLinked } from "react-router-dom";
-import {
-  PlainBackground,
-  Background,
-  Logo,
-  Container,
-  SigninBtn,
-} from "./styles/header";
+import { Background, Logo, Container, SigninBtn } from "./styles/header";
 
-export default function Header({ bg = true, children, ...props }) {
-  const [dimensions, setDimensions] = React.useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
-
-  function showBackground(props, children, bg) {
-    if (
-      (document.baseURI.includes("signin") ||
-        document.baseURI.includes("signup")) &&
-      dimensions.height <= 739
-    ) {
-      return <PlainBackground {...props}>{children}</PlainBackground>;
-    }
-
-    return bg ? <Background {...props}>{children}</Background> : children;
+function showBackground(props, children, bg) {
+  if (
+    (document.baseURI.includes("signin") ||
+      document.baseURI.includes("signup")) &&
+    window.innerWidth <= 739
+  ) {
+    return children;
   }
 
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }
+  return bg ? <Background {...props}>{children}</Background> : children;
+}
 
-    window.addEventListener("resize", showBackground);
-
-    return (_) => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
-
+export default function Header({ bg = true, children, ...props }) {
   return <>{showBackground(props, children, bg)}</>;
 }
 

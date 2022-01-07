@@ -33,16 +33,6 @@ export const Background = styled.div`
   // min-height: 100vh;
   z-index: 0;
 `;
-export const PlainBackground = styled.div`
-  display: flex;
-  flex-direction: column;
-  background: #000;
-  border-bottom: 8px solid #222;
-  object-fit: cover;
-  position: relative;
-  // min-height: 100vh;
-  z-index: 0;
-`;
 
 export const HomeBgGradient = styled.div`
   position: absolute;

@@ -12,8 +12,8 @@ export default function Signin() {
 
   const { firebase } = useContext(FirebaseContext);
 
-  const [emailAddress, setEmailAddress] = useState();
-  const [password, setPassword] = useState();
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   // check if form elements are valid
@@ -37,9 +37,8 @@ export default function Signin() {
       });
   };
 
-  
-  window.onresize = () => window.location.reload()
-  
+  window.onresize = () => window.location.reload();
+
   return (
     <>
       <HeaderContainer>
@@ -64,16 +63,15 @@ export default function Signin() {
             <Form.Submit disabled={isInvalid} type="submit">
               Sign In
             </Form.Submit>
-          
 
-          <Form.Text>
-            New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
-          </Form.Text>
+            <Form.Text>
+              New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
+            </Form.Text>
 
-          <Form.SmallText>
-            This page is protected by Google reCAPTCHA to ensure you're not a
-            bot. <Form.Link to="#">Learn more.</Form.Link>
-          </Form.SmallText>
+            <Form.SmallText>
+              This page is protected by Google reCAPTCHA to ensure you're not a
+              bot. <Form.Link to="#">Learn more.</Form.Link>
+            </Form.SmallText>
           </Form.Base>
         </Form>
       </HeaderContainer>
