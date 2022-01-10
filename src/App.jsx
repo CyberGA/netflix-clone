@@ -7,9 +7,10 @@ import Signup from "./pages/signup";
 import * as ROUTES from "./constants/routes";
 import { IsUserValidated, ProtectedRoute } from "./validation/routes";
 import useAuthListener from "./hooks/use-auth-listener";
+import useForm from "./lib/useForm";
 
 function App() {
-  const {user} = useAuthListener();
+  const { user } = useAuthListener();
 
   return (
     <Router>
@@ -29,7 +30,7 @@ function App() {
           loggedInPath={ROUTES.BROWSE}
           path={ROUTES.SIGN_IN}
         >
-          <Signin />
+          <Signin loginForm={useForm()} />
         </IsUserValidated>
 
         <IsUserValidated
@@ -38,7 +39,7 @@ function App() {
           loggedInPath={ROUTES.BROWSE}
           path={ROUTES.SIGN_UP}
         >
-          <Signup />
+          <Signup signupForm={useForm()} />
         </IsUserValidated>
 
         <ProtectedRoute exact user={user} path={ROUTES.BROWSE}>
