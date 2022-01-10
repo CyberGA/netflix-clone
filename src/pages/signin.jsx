@@ -7,17 +7,16 @@ import Form from "../components/form";
 import { HomeBgGradient } from "../components/header/styles/header";
 import * as ROUTES from "../constants/routes";
 
-export default function Signin() {
+export default function Signin({
+  loginForm: { onChange, form, loginFormNotValid, resetForm },
+}) {
   const history = useHistory();
 
   const { firebase } = useContext(FirebaseContext);
-
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   // check if form elements are valid
-  const isInvalid = password === "" || emailAddress === "";
+  // const isInvalid = password === "" || emailAddress === "";
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -25,20 +24,17 @@ export default function Signin() {
     // firebase will confirm here
     firebase
       .auth()
-      .signInWithEmailAndPassword(emailAddress, password)
+      .signInWithEmailAndPassword(form.email, form.password)
       .then(() => {
         // redirect to the browse page
         history.push(ROUTES.BROWSE);
       })
       .catch((err) => {
-        setEmailAddress("");
-        setPassword("");
+        resetForm()
         setError(err.message);
       });
   };
 
-  // window.onresize = () => window.location.reload();
-  
   return (
     <>
       <HeaderContainer>
@@ -49,18 +45,24 @@ export default function Signin() {
             <Form.Title>Sign In</Form.Title>
             {error && <Form.Error>{error}</Form.Error>}
             <Form.Input
+              name="email"
+              value={form.email || ""}
+              onChange={onChange}
+              type="email"
               placeholder="Email Address"
-              value={emailAddress}
-              onChange={({ target }) => setEmailAddress(target.value)}
+              // onChange={({ target }) => setEmailAddress(target.value)}
             />
             <Form.Input
+              name="password"
+              value={form.password || ""}
+              onChange={onChange}
               placeholder="Password"
               autoComplete="off"
               type="password"
-              value={password}
-              onChange={({ target }) => setPassword(target.value)}
+              // value={password}
+              // onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit">
+            <Form.Submit disabled={loginFormNotValid} type="submit">
               Sign In
             </Form.Submit>
 
