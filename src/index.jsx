@@ -3,12 +3,12 @@ import { render } from "react-dom";
 import "normalize.css";
 import App from "./App";
 import { GlobalStyles } from "./globalStyles";
-import { firebase } from "./lib/firebase.prod";
+import { firebaseApp } from "./lib/firebase.prod";
 import { FirebaseContext } from "./context/firebase";
 
 render(
   <>
-    <FirebaseContext.Provider value={{ firebase }}>
+    <FirebaseContext.Provider value={{ firebaseApp }}>
       <GlobalStyles />
       <App />
     </FirebaseContext.Provider>
