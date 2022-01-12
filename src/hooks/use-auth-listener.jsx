@@ -16,9 +16,7 @@ export default function useAuthListener() {
       if (authUser) {
         localStorage.setItem("authUser", JSON.stringify(authUser.providerData));
         setUser(authUser);
-        console.log("there is user");
       } else {
-        console.log("there is no user");
         localStorage.removeItem("authUser");
         setUser(null);
       }
