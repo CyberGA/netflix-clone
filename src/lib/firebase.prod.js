@@ -1,4 +1,4 @@
-import Firebase from "firebase/app";
+import { initializeApp } from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import { FIREBASE_CONFIG } from "./secret";
@@ -7,7 +7,7 @@ import { FIREBASE_CONFIG } from "./secret";
 // config
 const config = FIREBASE_CONFIG;
 
-const firebase = Firebase.initializeApp(config);
+const firebase = initializeApp(config);
 
 //storing the data from the seed
 // seedDatabase(firebase);
