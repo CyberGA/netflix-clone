@@ -5,7 +5,7 @@ import HeaderContainer from "./../containers/header";
 import FooterContainer from "./../containers/footer";
 import Form from "../components/form";
 import { HomeBgGradient } from "../components/header/styles/header";
-import * as ROUTES from "../constants/routes";
+import * as ROUTES from "../lib/routes";
 
 export default function Signin({
   loginForm: { onChange, form, loginFormNotValid, resetForm },
