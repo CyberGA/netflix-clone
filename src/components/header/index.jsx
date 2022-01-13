@@ -1,12 +1,7 @@
 import React from "react";
 import { Link as HomeLinked } from "react-router-dom";
-import {
-  Background,
-  Logo,
-  Container,
-  SigninBtn,
-} from "./styles/header";
-export default function Header({ bg = true, children, ...props }) {
+import { Background, Logo, Container, SigninBtn } from "./styles/header";
+export default function Header({ bg, children, ...props }) {
   return bg ? <Background {...props}>{children}</Background> : children;
 }
 
