@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/header/index";
-import * as ROUTES from "../constants/routes";
 import { useLocation } from "react-router-dom";
-import { HOME, SIGN_IN } from "../constants/routes"; //destructured home and signin
+import { HOME, SIGN_IN, SIGN_UP } from "../lib/routes"; //destructured home and signin
 
 export default function HeaderContainer({ children }) {
   const [height, setHeight] = useState(window.innerWidth);
@@ -12,10 +11,7 @@ export default function HeaderContainer({ children }) {
   window.onresize = () => setHeight(window.innerWidth);
 
   useEffect(() => {
-    if (
-      (pathname === ROUTES.SIGN_IN || pathname === ROUTES.SIGN_UP) &&
-      height <= 739
-    ) {
+    if ((pathname === SIGN_IN || pathname === SIGN_UP) && height <= 739) {
       setShow(false);
     } else {
       setShow(true);
@@ -24,13 +20,9 @@ export default function HeaderContainer({ children }) {
 
   return (
     // console.log(document.baseURI)
-    <Header bg={show}>
+    <Header bg={show} src={"home-bg4"}>
       <Header.Frame>
-        <Header.Logo
-          to={HOME}
-          src="/images/misc/Netflix-logo.svg"
-          alt="Netflix-logo"
-        />
+        <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix-logo" />
         {showSigninBtn()}
       </Header.Frame>
       {children}
@@ -38,7 +30,7 @@ export default function HeaderContainer({ children }) {
   );
 
   function showSigninBtn() {
-    if (pathname === ROUTES.SIGN_IN || pathname === ROUTES.SIGN_UP) return;
+    if (pathname === SIGN_IN || pathname === SIGN_UP) return;
 
     return <Header.SigninBtn to={SIGN_IN}>Sign In</Header.SigninBtn>;
   }
