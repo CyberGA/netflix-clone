@@ -1,3 +1,4 @@
 ----create the contact page (styled(Link))
 ----link the footer to the actual netflix pages
 ----do not push firebaseConfig
+----get the location of the user
