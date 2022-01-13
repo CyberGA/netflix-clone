@@ -75,7 +75,7 @@ export const Item = styled.div`
   //   margin-left: 70px;
   // }
 
-  &: first-of-type {
+  &:first-of-type {
     margin-top: 3em;
   }
 `;
