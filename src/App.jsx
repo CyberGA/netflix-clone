@@ -4,10 +4,10 @@ import Home from "./pages/home";
 import Browse from "./pages/browse";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
-import * as ROUTES from "./constants/routes";
+import * as ROUTES from "./lib/routes";
 import { IsUserValidated, ProtectedRoute } from "./validation/routes";
 import useAuthListener from "./hooks/use-auth-listener";
-import useForm from "./lib/useForm";
+import useForm from "./hooks/use-form";
 
 function App() {
   const { user } = useAuthListener();
