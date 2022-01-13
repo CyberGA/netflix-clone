@@ -24,9 +24,10 @@ export const Container = styled.div`
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background: url(${({ src }) =>
-      src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg3.jpg"})
-    top left / cover no-repeat;
+  background-image: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg3.jpg")});
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-bottom: 8px solid #222;
   object-fit: cover;
   position: relative;
