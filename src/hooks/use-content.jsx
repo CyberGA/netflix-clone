@@ -10,7 +10,7 @@ export default function useContent(target, name) {
         .then((res) => res.json())
         .catch((err) => console.log(err.message));
 
-      setContent(request.results);
+      setContent((content) => request.results);
 
       return request;
     }
