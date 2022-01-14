@@ -19,10 +19,9 @@ export default function HeaderContainer({ children }) {
   }, [height, pathname]);
 
   return (
-    // console.log(document.baseURI)
     <Header bg={show} src={"home-bg4"}>
       <Header.Frame>
-        <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix-logo" />
+        <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix logo" />
         {showSigninBtn()}
       </Header.Frame>
       {children}
