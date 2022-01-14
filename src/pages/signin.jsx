@@ -15,9 +15,6 @@ export default function Signin({
   const { firebase } = useContext(FirebaseContext);
   const [error, setError] = useState("");
 
-  // check if form elements are valid
-  // const isInvalid = password === "" || emailAddress === "";
-
   const handleSignin = (e) => {
     e.preventDefault();
 
@@ -26,10 +23,11 @@ export default function Signin({
       .auth()
       .signInWithEmailAndPassword(form.email, form.password)
       .then(() => {
-        // redirect to the browse page
+        //? redirect to the browse page
         history.push(ROUTES.BROWSE);
       })
       .catch((err) => {
+        //? empty the form
         resetForm()
         setError(err.message);
       });
