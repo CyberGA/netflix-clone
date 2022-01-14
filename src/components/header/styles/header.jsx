@@ -11,10 +11,6 @@ export const Container = styled.div`
   position: relative;
   z-index: 2;
 
-  a {
-    display: flex;
-  }
-
   @media (max-width: 1000px) {
     margin: 0 20px 0 10px;
     // box-shadow: 0 0 0 649px rgb(0 0 0 / 50%);
@@ -31,8 +27,11 @@ export const Background = styled.div`
   border-bottom: 8px solid #222;
   object-fit: cover;
   position: relative;
-  // min-height: 100vh;
   z-index: 0;
+
+  @media  (max-height: 1000px) {
+    min-height: 100vh;
+  }
 `;
 
 export const HomeBgGradient = styled.div`
