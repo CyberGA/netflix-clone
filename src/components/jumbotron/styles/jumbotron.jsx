@@ -41,9 +41,6 @@ export const Pane = styled.div`
 `;
 
 export const Title = styled.h1`
-  // font-size: 40px;
-  // line-height: 1.1;
-  // margin-bottom: 8px;
   font-size: 3.125rem;
   line-height: 1.1;
   margin-bottom: 0.5rem;
