@@ -87,7 +87,11 @@ export const Title = styled.h1`
   color: #fff;
   text-align: center;
 
+  @media only screen and (min-width: 550px) and (max-width: 949px) {
+    font-size: 2.5rem;
+  }
+
   @media (max-width: 600px) {
-    font-size: 35px;
+    font-size: 1.8rem;
   }
 `;
