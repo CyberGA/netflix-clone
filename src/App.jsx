@@ -5,7 +5,7 @@ import Browse from "./pages/browse";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import * as ROUTES from "./lib/routes";
-import { IsUserValidated, ProtectedRoute } from "./validation/routes";
+import { IsUserValidated, ProtectedRoute } from "./lib/validate";
 import useAuthListener from "./hooks/use-auth-listener";
 import useForm from "./hooks/use-form";
 
@@ -15,30 +15,15 @@ function App() {
   return (
     <Router>
       <Switch>
-        <IsUserValidated
-          exact
-          user={user}
-          loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.HOME}
-        >
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME}>
           <Home />
         </IsUserValidated>
 
-        <IsUserValidated
-          exact
-          user={user}
-          loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.SIGN_IN}
-        >
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
           <Signin loginForm={useForm()} />
         </IsUserValidated>
 
-        <IsUserValidated
-          exact
-          user={user}
-          loggedInPath={ROUTES.BROWSE}
-          path={ROUTES.SIGN_UP}
-        >
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_UP}>
           <Signup signupForm={useForm()} />
         </IsUserValidated>
 
