@@ -46,15 +46,37 @@ export const Title = styled.h1`
   color: #fff;
   font-size: 32px;
   font-weight: bold;
-  margin-bottom: 28px;
 `;
 export const Text = styled.p`
   color: #737373;
   font-size: 16px;
   font-weight: 500;
 `;
-export const SmallText = styled.p`
+
+export const LinkText = styled(Text)`
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  a {
+    color: #8c8c8c;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+`;
+
+export const Pane = styled.div`
+  display: flex;
+  justify-content: ${({space}) => space};
   margin-top: 10px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: ${({bottom}) => bottom}
+`;
+
+export const SmallText = styled.p`
+  margin-block: 0;
   font-size: 13px;
   line-height: normal;
   color: #8c8c8c;
@@ -66,6 +88,15 @@ export const SmallText = styled.p`
 `;
 export const Link = styled(RouterLink)`
   color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+export const SmallLink = styled(RouterLink)`
+  color: #8c8c8c;
+  font-size: 13px;
   text-decoration: none;
 
   &:hover {
@@ -94,7 +125,7 @@ export const Submit = styled.button`
   border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
-  margin: 24px 0 12px;
+  margin: 24px 0 0;
   padding: 16px;
   border: 0;
   color: #fff;
