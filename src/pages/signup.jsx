@@ -14,16 +14,12 @@ export default function Signup({ signupForm: { onChange, form, signupFormValid, 
 
   const [error, setError] = useState("");
 
-  // const isInvalid = name === "" || password === "" || emailAddress === "";
-
   const handleSignup = (e) => {
     e.preventDefault();
 
-    // create signup functionality
+    //? signup function
     signupAuth(form, firebaseApp, history, resetForm, setError);
   };
-
-  // window.onresize = () => window.location.reload()
 
   return (
     <>
