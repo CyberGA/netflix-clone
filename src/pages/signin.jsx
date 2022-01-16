@@ -14,6 +14,8 @@ export default function Signin({ loginForm: { onChange, form, loginFormNotValid,
 
   const handleSignin = async (e) => {
     e.preventDefault();
+
+    //? Signin function
     signinAuth(form, firebaseApp, history, resetForm, setError);
   };
 
@@ -26,24 +28,8 @@ export default function Signin({ loginForm: { onChange, form, loginFormNotValid,
           <Form.Base onSubmit={handleSignin} method="POST">
             <Form.Title>Sign In</Form.Title>
             {error && <Form.Error>{error}</Form.Error>}
-            <Form.Input
-              name="email"
-              value={form.email || ""}
-              onChange={onChange}
-              type="email"
-              placeholder="Email Address"
-              // onChange={({ target }) => setEmailAddress(target.value)}
-            />
-            <Form.Input
-              name="password"
-              value={form.password || ""}
-              onChange={onChange}
-              placeholder="Password"
-              autoComplete="off"
-              type="password"
-              // value={password}
-              // onChange={({ target }) => setPassword(target.value)}
-            />
+            <Form.Input name="email" value={form.email || ""} onChange={onChange} type="email" placeholder="Email Address" />
+            <Form.Input name="password" value={form.password || ""} onChange={onChange} placeholder="Password" autoComplete="off" type="password" />
             <Form.Submit disabled={loginFormNotValid} type="submit">
               Sign In
             </Form.Submit>
