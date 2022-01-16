@@ -4,9 +4,7 @@ import { FirebaseContext } from "../context/firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function useAuthListener() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("authUser"))
-  );
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("authUser")));
 
   const { firebaseApp } = useContext(FirebaseContext);
 
@@ -15,15 +13,16 @@ export default function useAuthListener() {
     const listener = onAuthStateChanged(auth, (authUser) => {
       if (authUser) {
         localStorage.setItem("authUser", JSON.stringify(authUser.providerData));
-        setUser(authUser);
+        setUser((user) => authUser);
       } else {
         localStorage.removeItem("authUser");
-        setUser(null);
+        setUser((user) => null);
       }
     });
 
     return () => listener();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return { user };
 }
