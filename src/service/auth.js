@@ -1,9 +1,8 @@
-import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
+import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { BROWSE } from "../lib/routes";
 
 export const signinAuth = async (form, firebaseApp, history, resetForm, setError) => {
-  const auth = await getAuth(firebaseApp);
+  const auth = getAuth(firebaseApp);
 
   if (!form.email || !form.password) return;
 
@@ -24,21 +23,19 @@ export const signinAuth = async (form, firebaseApp, history, resetForm, setError
 };
 
 export const signupAuth = async (form, firebaseApp, history, resetForm, setError) => {
-  const auth = await getAuth(firebaseApp);
+  const auth = getAuth(firebaseApp);
 
   if (!form.email || !form.password || !form.fullName) return;
 
   await createUserWithEmailAndPassword(auth, form.email, form.password)
-    .then((result) => {
+    .then(() => {
       //? redirect to the browse page
-      result.user
-        .updateProfile({
-          displayName: form.fullName,
-          photoURL: Math.floor(Math.random() * 5) + 1,
-        })
-        .then(() => {
-          history.push(BROWSE);
-        });
+      updateProfile(auth.currentUser, {
+        displayName: form.fullName,
+        photoURL: Math.floor(Math.random() * 5) + 1,
+      }).then(() => {
+        history.push(BROWSE);
+      });
     })
     .catch((err) => {
       resetForm();
