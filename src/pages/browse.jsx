@@ -1,12 +1,14 @@
 import React from "react";
+import BrowseContainer from "../containers/browse";
 import useContent from "../hooks/use-content";
 import requests from "../lib/request";
 
 export default function Browse() {
-  const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
-  const { Trending } = useContent(`${requests.fetchTrending}`, "Trending");
-  console.log("Action:", Action);
-  console.log("Trending:", Trending);
+  // const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
 
-  return <p>Thi is is the browse page</p>;
+  return (
+    <>
+      <BrowseContainer filter={"Action"} />
+    </>
+  );
 }
