@@ -20,7 +20,7 @@ export const Container = styled.div`
 export const Background = styled.div`
   display: flex;
   flex-direction: column;
-  background-image: url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg3.jpg")});
+  background-image: url(${({ src }) => (src ? src : "../images/misc/home-bg3.jpg")});
   background-position: top left;
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@ export const Background = styled.div`
   position: relative;
   z-index: 0;
 
-  @media  (max-height: 1000px) {
+  @media (max-height: 1000px) {
     min-height: 100vh;
   }
 `;
@@ -90,4 +90,23 @@ export const SigninBtn = styled(Link)`
     // margin-top: .35rem;
     padding: 0.4rem 0.5rem;
   }
+`;
+
+export const Feature = styled(Container)`
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: normal;
+  width: 50%;
+
+  @media (max-width: 110px) {
+    display: none;
+  }
+`;
+
+export const Text = styled.p`
+  color: #fff;
+  font-size: 22px;
+  line-height: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0;
 `;
