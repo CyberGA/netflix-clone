@@ -12,7 +12,6 @@ export const signinAuth = async (form, firebaseApp, history, resetForm, setError
       history.push(BROWSE);
     })
     .catch((err) => {
-      console.log(err.message);
       resetForm();
       if (err.message.includes("user-not-found" || "wrong" || "wrong-password")) {
         setError((error) => "Email or password incorrect");
