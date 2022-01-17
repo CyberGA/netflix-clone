@@ -19,7 +19,7 @@ export default function HeaderContainer({ children }) {
   }, [height, pathname]);
 
   return (
-    <Header bg={show} src={"home-bg4"}>
+    <Header bg={show} src={"../images/misc/home-bg4.jpg"}>
       <Header.Frame>
         <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix logo" />
         {showSigninBtn()}
