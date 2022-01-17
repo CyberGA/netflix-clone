@@ -1,9 +1,16 @@
 import React from "react";
 import { Link as HomeLinked } from "react-router-dom";
-import { Background, Logo, Container, SigninBtn } from "./styles/header";
+import { Background, Logo, Container, SigninBtn, Feature, Text } from "./styles/header";
 export default function Header({ bg, children, ...props }) {
   return bg ? <Background {...props}>{children}</Background> : children;
 }
+
+Header.Feature = function HeaderFeature({ children, ...props }) {
+  return <Feature {...props}>{children}</Feature>;
+};
+Header.Text = function HeaderText({ children, ...props }) {
+  return <Text {...props}>{children}</Text>;
+};
 
 Header.Frame = function HeaderFrame({ children, ...props }) {
   return <Container {...props}>{children}</Container>;
