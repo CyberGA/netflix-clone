@@ -93,13 +93,13 @@ export const SigninBtn = styled(Link)`
 `;
 
 export const Feature = styled(Container)`
-  padding: 150px 0 500px 0;
+  padding: 150px 1em 500px 0;
   flex-direction: column;
   align-items: normal;
   width: 50%;
 
-  @media (max-width: 110px) {
-    display: none;
+  @media screen and (max-width: 768px) {
+    width: 80%;
   }
 `;
 
@@ -109,4 +109,13 @@ export const Text = styled.p`
   line-height: normal;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
   margin: 0;
+`;
+
+export const FeautureTitle = styled.h2`
+  color: #fff;
+  font-size: 44px;
+  font-weight: bold;
+  line-height: normal;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+  margin: 0 0 20px;
 `;
