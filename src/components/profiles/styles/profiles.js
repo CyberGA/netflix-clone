@@ -7,7 +7,6 @@ export const Container = styled.div`
   align-items: center;
   margin: auto;
   max-width: 80%;
-  cursor: pointer;
 `;
 
 export const Title = styled.h1`
@@ -28,6 +27,7 @@ export const List = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 `;
 
 export const Picture = styled.img`
