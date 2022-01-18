@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as HomeLinked } from "react-router-dom";
-import { Background, Logo, Container, SigninBtn, Feature, Text } from "./styles/header";
+import { Background, Logo, Container, SigninBtn, Feature, Text, FeautureTitle } from "./styles/header";
 export default function Header({ bg, children, ...props }) {
   return bg ? <Background {...props}>{children}</Background> : children;
 }
@@ -10,6 +10,9 @@ Header.Feature = function HeaderFeature({ children, ...props }) {
 };
 Header.Text = function HeaderText({ children, ...props }) {
   return <Text {...props}>{children}</Text>;
+};
+Header.FeautureTitle = function HeaderFeautureTitle({ children, ...props }) {
+  return <FeautureTitle {...props}>{children}</FeautureTitle>;
 };
 
 Header.Frame = function HeaderFrame({ children, ...props }) {
