@@ -5,37 +5,34 @@ import Loading from "../components/loading/index";
 import useContent from "../hooks/use-content";
 import requests from "../lib/request";
 import Header from "../components/header/index";
-import { HOME } from './../lib/routes';
+import { HOME } from "./../lib/routes";
 
-const BrowseContainer = () => {
+const BrowseContainer = ({slides}) => {
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [banner, setBanner] = useState("");
   const authUser = getAuth().currentUser || {};
-  const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
+  const { Trending } = useContent(`${requests.fetchTrending}`, "Trending");
 
   useEffect(() => {
-    console.log("profile", profile);
-
-    const newBanner = Action[Math.ceil(Math.random() * Action.length - 1)];
-    console.log(newBanner);
+    const newBanner = Trending[Math.ceil(Math.random() * Trending.length - 1)];
     setBanner((banner) => newBanner);
 
     setTimeout(() => {
       setLoading((loading) => false);
     }, 6000);
-  }, [profile, Action]);
+  }, [profile, Trending]);
 
   return profile.displayName ? (
     <>
       {loading ? <Loading src={authUser.photoURL} /> : <Loading.ReleaseBody />}
 
-      <Header src={`https://image.tmdb.org/t/p/original/${banner?.backdrop_path}`} bg={true}>
-      <Header.Frame>
-        <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix logo" />
-      </Header.Frame>
+      <Header src={`${requests.img_url}/${banner?.backdrop_path}`} bg={true}>
+        <Header.Frame>
+          <Header.Logo to={HOME} src="/images/misc/Netflix-logo.svg" alt="Netflix logo" />
+        </Header.Frame>
         <Header.Feature>
-          <Header.FeautureTitle>{banner?.title ?? banner?.original_title}</Header.FeautureTitle>
+          <Header.FeautureTitle>{banner?.title ?? banner?.original_title ?? banner?.original_name}</Header.FeautureTitle>
           <Header.Text>{shortened(banner?.overview, 100)}</Header.Text>
         </Header.Feature>
       </Header>
