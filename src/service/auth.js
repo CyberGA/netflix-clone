@@ -6,7 +6,7 @@ export const signinAuth = async (form, firebaseApp, history, resetForm, setError
 
   if (!form.email || !form.password) return;
 
-  await signInWithEmailAndPassword(auth, form.email, form.password)
+  await signInWithEmailAndPassword(auth, form.email.trim(), form.password)
     .then(() => {
       //? redirect to the browse page
       history.push(BROWSE);
@@ -26,11 +26,11 @@ export const signupAuth = async (form, firebaseApp, history, resetForm, setError
 
   if (!form.email || !form.password || !form.fullName) return;
 
-  await createUserWithEmailAndPassword(auth, form.email, form.password)
+  await createUserWithEmailAndPassword(auth, form.email.trim(), form.password)
     .then(() => {
       //? redirect to the browse page
       updateProfile(auth.currentUser, {
-        displayName: form.fullName,
+        displayName: form.fullName.trim(),
         photoURL: Math.floor(Math.random() * 5) + 1,
       }).then(() => {
         history.push(BROWSE);
