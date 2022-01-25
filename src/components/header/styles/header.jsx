@@ -154,7 +154,7 @@ export const Dropdown = styled.div`
   padding: 10px;
   width: 100px;
   top: 32px;
-  right: 10px;
+  right: 4px;
 
   ${Group} {
     margin-bottom: 10px;
@@ -165,11 +165,22 @@ export const Dropdown = styled.div`
 
     ${Links}, ${Picture} {
       cursor: default;
+      font-size: 16px;
+      font-weight: normal;
     }
   }
 
   button {
     margin-right: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+
+    &:hover {
+      font-size: 12px;
+    }
   }
 `;
 
