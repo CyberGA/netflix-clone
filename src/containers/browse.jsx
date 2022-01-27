@@ -10,6 +10,7 @@ import getInitials from "../lib/get-initials";
 import shortened from "../lib/shorten-text";
 
 const BrowseContainer = ({ slides }) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
   const [banner, setBanner] = useState("");
@@ -41,6 +42,7 @@ const BrowseContainer = ({ slides }) => {
             <Header.Links>Films</Header.Links>
           </Header.Group>
           <Header.Group>
+            <Header.Search searchTerm={searchTerm}  setSearchTerm={setSearchTerm} />
             <Header.Profile>
               <Header.Picture src={authUser.photoURL} />
               <Header.Dropdown>
@@ -56,6 +58,7 @@ const BrowseContainer = ({ slides }) => {
         <Header.Feature>
           <Header.FeautureTitle>{banner?.title ?? banner?.original_title ?? banner?.original_name}</Header.FeautureTitle>
           <Header.Text>{shortened(banner?.overview, 100)}</Header.Text>
+          <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
     </>
