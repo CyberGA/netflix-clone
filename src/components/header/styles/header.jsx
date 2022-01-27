@@ -200,6 +200,65 @@ export const Profile = styled.div`
   }
 `;
 
+export const Search = styled.div`
+  display: flex;
+  align-items: center;
+
+  svg {
+    color: #fff;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+`;
+
+export const SearchIcon = styled.button`
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+
+  img {
+    filter: brightness(0) invert(1);
+    width: 16px;
+  }
+`;
+
+export const SearchInput = styled.input`
+  background-color: #44444459;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: width 0.5s;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 8px;
+  padding-left: 4px;
+  width: ${({ active }) => (active === true ? "150px" : "0")};
+  visibility: ${({ active }) => (active === true ? "visible" : "hidden")};
+  margin-left: ${({ active }) => (active === true ? "10px" : "0")};
+`;
+
+export const PlayButton = styled.button`
+  box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);
+  background-color: #e6e6e6;
+  color: #000;
+  border-width: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  max-width: 130px;
+  font-size: 20px;
+  margin-top: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background-color: #ff1e1e;
+    color: #fff;
+  }
+`;
+
 export const FeautureTitle = styled.h2`
   color: #fff;
   font-size: 44px;
