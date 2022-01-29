@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
+import requests from "../../lib/request";
 import {
   Container,
   Group,
@@ -48,6 +49,25 @@ Card.Text = function CardText({ children, ...props }) {
 
 Card.Meta = function CardMeta({ children, ...props }) {
   return <Meta {...props}>{children}</Meta>;
+};
+
+Card.Feature = function CardFeature({ children, category, ...props }) {
+  const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
+  return showFeature ? (
+    <Feature src={`${requests.img_url}${itemFeature?.poster_path}` ?? `${requests.img_url}${itemFeature?.backdrop_path}`} {...props}>
+      <Content>
+        <FeatureTitle>{itemFeature?.title}</FeatureTitle>
+        <FeatureText>{itemFeature?.overview}</FeatureText>
+        <FeatureClose onClick={() => setShowFeature(false)}>
+          <img src="/images/icons/close.png" alt="Close" />
+        </FeatureClose>
+      </Content>
+
+      <Group margin="30px 0" flexDirection="row" alignItems="center">
+        <Maturity rating={itemFeature.adult}>{itemFeature.adult === true ? "PG" : itemFeature.adult}</Maturity>
+      </Group>
+    </Feature>
+  ) : null;
 };
 
 Card.Entities = function CardEntities({ children, ...props }) {
