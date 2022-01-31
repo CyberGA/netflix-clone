@@ -64,7 +64,9 @@ export const FeatureClose = styled.button`
   }
 `;
 
-export const Maturity = styled.div``;
+export const Maturity = styled.div`
+  background-color: ${({rating}) => (rating === true ? "red" : "green")}
+`;
 
 export const Content = styled.div``;
 
