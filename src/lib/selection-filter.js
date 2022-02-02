@@ -1,3 +1,9 @@
+//& films or series
+/**
+ *
+ * @param {Function} SelectionFIlter
+ * @returns series or films
+ */
 export default function SelectionFIlter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries }) {
   return {
     series: [
