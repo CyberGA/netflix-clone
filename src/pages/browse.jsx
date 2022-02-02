@@ -5,6 +5,8 @@ import requests from "../lib/request";
 import SelectionFIlter from "../lib/selection-filter";
 
 export default function Browse() {
+
+  //& Variety of movies
   const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
   const { Anime } = useContent(`${requests.fetchAnime}`, "Anime");
   const { Trending } = useContent(`${requests.fetchTrending}`, "Trending");
