@@ -3,6 +3,7 @@ import Header from "../components/header";
 import { BROWSE } from "../lib/routes";
 import Profiles from "../components/profiles";
 
+//& For selecting available profile(s)
 const SelectProfileContainer = ({ user, setProfile }) => {
   return (
     <>
