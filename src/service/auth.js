@@ -1,6 +1,7 @@
 import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { BROWSE } from "../lib/routes";
 
+//& Google signin authentication
 export const signinAuth = async (form, firebaseApp, history, resetForm, setError) => {
   const auth = getAuth(firebaseApp);
 
@@ -21,6 +22,7 @@ export const signinAuth = async (form, firebaseApp, history, resetForm, setError
     });
 };
 
+//& Google signup authentication
 export const signupAuth = async (form, firebaseApp, history, resetForm, setError) => {
   const auth = getAuth(firebaseApp);
 
