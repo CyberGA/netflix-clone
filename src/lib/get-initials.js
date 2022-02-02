@@ -1,3 +1,5 @@
+
+//& getting initials of a name
 export default function getInitials(name) {
   let initials = name.split(" ");
 
