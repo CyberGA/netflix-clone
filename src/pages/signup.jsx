@@ -10,6 +10,7 @@ import { signupAuth } from "../service/auth";
 export default function Signup({ signupForm: { onChange, form, signupFormValid, resetForm } }) {
   const history = useHistory();
 
+  //& getting firebase context
   const { firebaseApp } = useContext(FirebaseContext);
 
   const [error, setError] = useState("");
