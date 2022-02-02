@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 
+//& Thumbnails of fetched movies
 export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
