@@ -10,6 +10,7 @@ import getInitials from "../lib/get-initials";
 import shortened from "../lib/shorten-text";
 import Card from "../components/card";
 
+//& Main page container - Browse
 const BrowseContainer = ({ slides }) => {
   const [category, setcategory] = useState("series");
   const [searchTerm, setSearchTerm] = useState("");
