@@ -10,6 +10,7 @@ import {
 
 const ToggleContext = createContext();
 
+//& Frequently asked questions
 const Accordion = ({ children, ...props }) => {
   return (
     <Container {...props}>
