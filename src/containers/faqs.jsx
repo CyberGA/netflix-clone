@@ -3,6 +3,7 @@ import Accordion from "../components/accordion/index";
 import OptForm from "../components/opt-form";
 import faqsData from "../service/faqs.json";
 
+//& Frquently asked questions container
 function FaqsContainer() {
   return (
     <Accordion>
