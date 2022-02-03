@@ -20,6 +20,7 @@ import {
 
 export const FeatureContext = createContext();
 
+//& Movies 
 const Card = ({ children, ...props }) => {
   const [showFeature, setShowFeature] = useState(false);
   const [itemFeature, setItemFeature] = useState({});
