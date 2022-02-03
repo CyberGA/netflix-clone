@@ -9,6 +9,7 @@ import {
   Break,
 } from "./styles/footer";
 
+//& Footer
 function Footer({ children, ...props }) {
   return <Container {...props}>{children}</Container>;
 }
