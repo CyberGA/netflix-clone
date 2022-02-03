@@ -2,6 +2,7 @@ import React from "react";
 import Jumbotron from "../components/jumbotron/index";
 import jumbotronData from "../service/jumbotron";
 
+//& Jumbotron container for display flyers
 export function JumbotronContainer() {
   return (
       <Jumbotron.Container>
