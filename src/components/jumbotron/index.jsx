@@ -9,6 +9,7 @@ import {
   Image,
 } from "./styles/jumbotron";
 
+//& Jumbotron for displaying flyers
 function Jumbotron({ children, direction = "row", ...props }) {
   return (
     <Item { ...props }>
