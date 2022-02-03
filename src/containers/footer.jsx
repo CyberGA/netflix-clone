@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../components/footer/index";
 
+//& Footer container
 const FooterContainer = ({ page }) => {
   return (
     <Footer>
