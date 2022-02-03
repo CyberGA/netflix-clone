@@ -14,6 +14,7 @@ import {
   Pane
 } from "./styles/form";
 
+//& Forms for signin and signup auth
 export default function Form({ children, ...props }) {
   return <Container {...props}>{children}</Container>;
 }
