@@ -3,11 +3,13 @@ import Header from "../components/header/index";
 import { useLocation } from "react-router-dom";
 import { HOME, SIGN_IN, SIGN_UP } from "../lib/routes"; //destructured home and signin
 
+//& Header container
 export default function HeaderContainer({ children }) {
   const [height, setHeight] = useState(window.innerWidth);
   const [show, setShow] = useState(true);
   const { pathname } = useLocation();
 
+  //& reset browser height to show appropriate background for signin and signup
   window.onresize = () => setHeight(window.innerWidth);
 
   useEffect(() => {
