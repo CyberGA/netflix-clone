@@ -2,6 +2,7 @@ import { TMDB_KEY } from "./secret";
 
 const API_KEY = TMDB_KEY;
 
+//& Getting different movie types
 const requests = {
   baseURL: "https://api.themoviedb.org/3",
   img_url: "https://image.tmdb.org/t/p/original/",
