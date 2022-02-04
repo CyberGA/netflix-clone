@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { FIREBASE_CONFIG } from "./secret";
 // import { seedDatabase } from "../seed";
 
-//? config
+//& config
 const config = FIREBASE_CONFIG;
 
 const firebaseApp = initializeApp(config);
