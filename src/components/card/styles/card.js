@@ -12,6 +12,18 @@ export const FeatureText = styled.p`
   margin-left: 0;
 `;
 
+
+export const Image = styled.img`
+  border: 0;
+  /* width: 100%;
+  max-width: 305px; */
+  cursor: pointer;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  transform: scale(0.4);
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -151,10 +163,10 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform: 0.2s
+  transition: transform 0.2s;
 
-  &:hover {
-    transform: scale(0.6);
+  &:hover ${Image} {
+    transform: scale(0.45);
     z-index: 99;
   }
 
@@ -182,13 +194,3 @@ export const Item = styled.div`
   }
 `;
 
-export const Image = styled.img`
-  border: 0;
-  /* width: 100%;
-  max-width: 305px; */
-  cursor: pointer;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  transform: scale(0.4);
-`;
