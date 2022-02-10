@@ -26,7 +26,7 @@ export const Background = styled.div`
   display: flex;
   flex-direction: column;
   background-image: url(${({ src }) => (src ? src : "../images/misc/home-bg3.jpg")});
-  background-position: top left;
+  background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: 8px solid #222;
