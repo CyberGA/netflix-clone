@@ -20,7 +20,7 @@ import {
 
 export const FeatureContext = createContext();
 
-//& Movies 
+//& Movies
 const Card = ({ children, ...props }) => {
   const [showFeature, setShowFeature] = useState(false);
   const [itemFeature, setItemFeature] = useState({});
@@ -55,7 +55,7 @@ Card.Meta = function CardMeta({ children, ...props }) {
 Card.Feature = function CardFeature({ children, category, ...props }) {
   const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
   return showFeature ? (
-    <Feature src={`${requests.img_url}${itemFeature?.poster_path}` ?? `${requests.img_url}${itemFeature?.backdrop_path}`} {...props}>
+    <Feature {...props} src={`${requests.img_url}${itemFeature?.backdrop_path}` ?? `${requests.img_url}${itemFeature?.poster_path}`}>
       <Content>
         <FeatureTitle>{itemFeature?.title}</FeatureTitle>
         <FeatureText>{itemFeature?.overview}</FeatureText>
@@ -65,7 +65,8 @@ Card.Feature = function CardFeature({ children, category, ...props }) {
       </Content>
 
       <Group margin="30px 0" flexDirection="row" alignItems="center">
-        <Maturity rating={itemFeature.adult}>{itemFeature.adult === true ? "PG" : itemFeature.adult}</Maturity>
+        <Maturity rating={itemFeature.adult}>{itemFeature?.adult === true ? "PG" : "General"}</Maturity>
+        <FeatureText fontWeight="bold">{itemFeature?.media_type ?? "Movies"}</FeatureText>
       </Group>
     </Feature>
   ) : null;
