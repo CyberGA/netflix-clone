@@ -12,16 +12,15 @@ export const FeatureText = styled.p`
   margin-left: 0;
 `;
 
-
 export const Image = styled.img`
   border: 0;
-  /* width: 100%;
-  max-width: 305px; */
+  /* width: 100%; */
+  max-width: 305px;
   cursor: pointer;
   height: auto;
   padding: 0;
   margin: 0;
-  transform: scale(0.4);
+  transform: scale(1);
 `;
 
 export const Container = styled.div`
@@ -46,11 +45,14 @@ export const Group = styled.div`
   flex-direction: ${({ flexDirection }) => (flexDirection === "row" ? "row" : "column")};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
+  box-shadow: 10px -20px 10px rgb(0 0 0);
 
   > ${Container}:first-of-type {
-    @media (min-width: 1100px) {
-      margin-top: -150px;
-    }
+    position: relative;
+    background: #000;
+    margin-top: -180px;
+    padding-top: 5px;
+    box-shadow: -10px -20px 10px rgb(0 0 0), 10px -20px 10px rgb(0 0 0);
   }
 `;
 
@@ -90,7 +92,7 @@ export const Feature = styled.div`
     background-size: auto;
 
     ${Title} {
-      font-siz: 20px;
+      font-size: 20px;
       line-height: 20px;
       margin-bottom: 10px;
     }
@@ -149,7 +151,7 @@ export const Meta = styled.div`
   position: absolute;
   bottom: 0;
   padding: 10px;
-  background-color: #00000008;
+  background-color: #0000008f;
 `;
 
 export const Entities = styled.div`
@@ -166,7 +168,7 @@ export const Item = styled.div`
   transition: transform 0.2s;
 
   &:hover ${Image} {
-    transform: scale(0.45);
+    /* transform: scale(1.3); */
     z-index: 99;
   }
 
@@ -187,10 +189,9 @@ export const Item = styled.div`
 
   &:last-of-type {
     margin-right: 56px;
-    
+
     @media (max-width: 1000px) {
       margin-right: 30px;
     }
   }
 `;
-
