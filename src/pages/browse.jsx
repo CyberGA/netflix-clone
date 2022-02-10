@@ -2,7 +2,7 @@ import React from "react";
 import BrowseContainer from "../containers/browse";
 import useContent from "../hooks/use-content";
 import requests from "../lib/request";
-import SelectionFIlter from "../lib/selection-filter";
+import SelectionFilter from "../lib/selection-filter";
 
 export default function Browse() {
 
@@ -18,7 +18,7 @@ export default function Browse() {
   const { Romance } = useContent(`${requests.fetchRomance}`, "Romance");
   const { Documentaries } = useContent(`${requests.fetchDocumentaries}`, "Documentaries");
 
-  const slides = SelectionFIlter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries });
+  const slides = SelectionFilter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries });
 
   return (
     <>
