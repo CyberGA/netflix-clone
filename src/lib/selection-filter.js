@@ -4,7 +4,7 @@
  * @param {Function} SelectionFIlter
  * @returns series or films
  */
-export default function SelectionFIlter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries }) {
+export default function SelectionFilter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries }) {
   return {
     series: [
       {
@@ -12,20 +12,20 @@ export default function SelectionFIlter({ Action, Anime, Trending, Comedy, Netfl
         data: NetflixOriginals,
       },
       {
-        title: "Comedies",
-        data: Comedy,
-      },
-      {
-        title: "Documentaries",
-        data: Documentaries,
-      },
-      {
         title: "Crime",
         data: Crime,
       },
       {
+        title: "Comedies",
+        data: Comedy,
+      },
+      {
         title: "Action",
         data: Action,
+      },
+      {
+        title: "Documentaries",
+        data: Documentaries,
       },
     ],
     films: [
