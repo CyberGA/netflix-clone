@@ -90,12 +90,9 @@ const BrowseContainer = ({ slides }) => {
                 </Card.Item>
               ))}
             </Card.Entities>
-            {/* <Card.Feature category={category}>
-              <Player>
-                <Player.Button />
-                <Player.Video src="" />
-              </Player>
-            </Card.Feature> */}
+
+            <Card.Feature category={category}>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
