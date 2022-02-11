@@ -82,7 +82,7 @@ const BrowseContainer = ({ slides }) => {
             <Card.Entities>
               {slideItem.data.map((item) => (
                 <Card.Item key={item.id} item={item}>
-                  <Card.Image src={`${requests.img_url}${item?.poster_path}` ?? `${requests.img_url}${item?.backdrop_path}`} width={305} height={172} />
+                  <Card.Image src={`${requests.img_url}${item?.poster_path}` ?? `${requests.img_url}${item?.backdrop_path}`} />
                   <Card.Meta>
                     <Card.SubTitle>{item?.title ?? item.original_title ?? item?.original_name}</Card.SubTitle>
                     <Card.Text>{item?.overview}</Card.Text>
@@ -91,8 +91,7 @@ const BrowseContainer = ({ slides }) => {
               ))}
             </Card.Entities>
 
-            <Card.Feature category={category}>
-            </Card.Feature>
+            <Card.Feature category={category} />
           </Card>
         ))}
       </Card.Group>
