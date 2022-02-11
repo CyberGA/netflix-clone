@@ -64,10 +64,10 @@ Card.Feature = function CardFeature({ children, category, ...props }) {
         </FeatureClose>
       </Content>
 
-      <Group margin="30px 0" flexDirection="row" alignItems="center">
+      {/* <Group margin="30px 0" flexDirection="row" alignItems="center">
         <Maturity rating={itemFeature.adult}>{itemFeature?.adult === true ? "PG" : "General"}</Maturity>
         <FeatureText fontWeight="bold">{itemFeature?.media_type ?? "Movies"}</FeatureText>
-      </Group>
+      </Group> */}
     </Feature>
   ) : null;
 };
