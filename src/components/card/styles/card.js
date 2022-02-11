@@ -10,12 +10,13 @@ export const Title = styled.p`
 
 export const FeatureText = styled.p`
   margin-left: 0;
+  color: #000;
 `;
 
 export const Image = styled.img`
   border: 0;
   /* width: 100%; */
-  max-width: 305px;
+  max-width: 205px;
   cursor: pointer;
   height: auto;
   padding: 0;
@@ -45,7 +46,6 @@ export const Group = styled.div`
   flex-direction: ${({ flexDirection }) => (flexDirection === "row" ? "row" : "column")};
   ${({ alignItems }) => alignItems && `align-items: ${alignItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
-  box-shadow: 10px -20px 10px rgb(0 0 0);
 
   > ${Container}:first-of-type {
     position: relative;
@@ -79,16 +79,18 @@ export const Text = styled.p`
 export const Feature = styled.div`
   display: flex;
   flex-direction: row;
-  background: url(${({ src }) => src});
-  background-size: contain;
+  background-image: url(${({ src }) => src});
+  background-size: cover;
+  background-position: top left;
   position: relative;
-  height: 360px;
-  background-position-x: right;
+  /* height: 360px; */
+  height: auto;
+  /* background-position-x: right; */
   background-repeat: no-repeat;
-  background: #000;
+  background-color: #000;
 
   @media (max-width: 1000px) {
-    height: auto;
+    /* height: auto; */
     background-size: auto;
 
     ${Title} {
@@ -137,6 +139,8 @@ export const Maturity = styled.div`
 
 export const Content = styled.div`
   margin: 56px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
   max-width: 500px;
   line-height: normal;
 
@@ -152,6 +156,7 @@ export const Meta = styled.div`
   bottom: 0;
   padding: 10px;
   background-color: #0000008f;
+  transition: transform 0.2s;
 `;
 
 export const Entities = styled.div`
@@ -167,8 +172,8 @@ export const Item = styled.div`
   cursor: pointer;
   transition: transform 0.2s;
 
-  &:hover ${Image} {
-    /* transform: scale(1.3); */
+  &:hover ${Image}, &:hover ${Meta} {
+    transform: scale(1.3);
     z-index: 99;
   }
 
