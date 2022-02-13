@@ -11,6 +11,7 @@ export const signinAuth = async (form, firebaseApp, history, resetForm, setError
     .then(() => {
       //? redirect to the browse page
       history.push(BROWSE);
+      resetForm();
     })
     .catch((err) => {
       resetForm();
@@ -37,6 +38,7 @@ export const signupAuth = async (form, firebaseApp, history, resetForm, setError
       }).then(() => {
         history.push(BROWSE);
       });
+      resetForm();
     })
     .catch((err) => {
       resetForm();
