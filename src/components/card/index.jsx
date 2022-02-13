@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import requests from "../../lib/request";
+import { useAlert } from "react-alert";
 import {
   Container,
   Group,
@@ -17,16 +18,19 @@ import {
   Entities,
   Item,
 } from "./styles/card";
+import movieTrailer from "movie-trailer";
+import { TrailerContext } from "../../context/trailer";
 
 export const FeatureContext = createContext();
 
 //& Movies
 const Card = ({ children, ...props }) => {
   const [showFeature, setShowFeature] = useState(false);
+  const [itemTitle, setItemTitle] = useState("");
   const [itemFeature, setItemFeature] = useState({});
 
   return (
-    <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature }}>
+    <FeatureContext.Provider value={{ showFeature, setShowFeature, itemFeature, setItemFeature, itemTitle, setItemTitle }}>
       <Container {...props}>{children}</Container>
     </FeatureContext.Provider>
   );
@@ -53,21 +57,55 @@ Card.Meta = function CardMeta({ children, ...props }) {
 };
 
 Card.Feature = function CardFeature({ children, category, ...props }) {
-  const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
+  const { showFeature, itemFeature, setShowFeature, itemTitle } = useContext(FeatureContext);
+
+  //& Content restriction
+  const checkContent = (content) => {
+    let checks = "";
+    switch (content) {
+      case "Romance":
+        checks = "PG";
+        break;
+      case "Horror":
+        checks = "PG-13";
+        break;
+      default:
+        checks = "G";
+        break;
+    }
+    return checks;
+  };
+  const maturityBg = (content) => {
+    let checks = "";
+    switch (content) {
+      case "Romance":
+        checks = true;
+        break;
+      case "Horror":
+        checks = true;
+        break;
+      default:
+        checks = false;
+        break;
+    }
+    return checks;
+  };
+
   return showFeature ? (
-    <Feature {...props} src={`${requests.img_url}${itemFeature?.backdrop_path}` ?? `${requests.img_url}${itemFeature?.poster_path}`}>
+    <Feature {...props} src={`${requests.img_url}${itemFeature?.poster_path}` ?? `${requests.img_url}${itemFeature?.backdrop_path}`}>
       <Content>
         <FeatureTitle>{itemFeature?.title}</FeatureTitle>
         <FeatureText>{itemFeature?.overview}</FeatureText>
         <FeatureClose onClick={() => setShowFeature(false)}>
           <img src="/images/icons/close.png" alt="Close" />
         </FeatureClose>
-      </Content>
 
-      {/* <Group margin="30px 0" flexDirection="row" alignItems="center">
-        <Maturity rating={itemFeature.adult}>{itemFeature?.adult === true ? "PG" : "General"}</Maturity>
-        <FeatureText fontWeight="bold">{itemFeature?.media_type ?? "Movies"}</FeatureText>
-      </Group> */}
+        <Group margin="30px 0" flexDirection="row" alignItems="center">
+          <Maturity rating={maturityBg(itemTitle)}>{checkContent(itemTitle)}</Maturity>
+          <FeatureText fontWeight="bold">{itemTitle}</FeatureText>
+        </Group>
+        {children}
+      </Content>
     </Feature>
   ) : null;
 };
@@ -76,13 +114,30 @@ Card.Entities = function CardEntities({ children, ...props }) {
   return <Entities {...props}>{children}</Entities>;
 };
 
-Card.Item = function CardItem({ item, children, ...props }) {
-  const { setShowFeature, setItemFeature } = useContext(FeatureContext);
+Card.Item = function CardItem({ item, itemTitle, children, ...props }) {
+  const { setShowFeature, setItemFeature, setItemTitle } = useContext(FeatureContext);
+  const { setVideoId } = useContext(TrailerContext);
+  const alert = useAlert();
+
+  const handleClick = async (movie) => {
+    await movieTrailer(movie?.original_name || movie?.title || movie?.original_title || "")
+      .then((url) => {
+        const urlParams = new URLSearchParams(new URL(url).search);
+        setVideoId(urlParams.get("v"));
+      })
+      .catch((err) => {
+        setVideoId("");
+        alert.error(<span style={{ fontSize: "16px", textTransform: "lowercase" }}>Movie not available yet</span>);
+      });
+  };
+
   return (
     <Item
       onClick={() => {
         setItemFeature(item);
         setShowFeature(true);
+        setItemTitle(itemTitle);
+        handleClick(item);
       }}
       {...props}
     >
