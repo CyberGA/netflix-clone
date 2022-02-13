@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Fuse from "fuse.js";
 import SelectProfileContainer from "./profile";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import Loading from "../components/loading/index";
 import useContent from "../hooks/use-content";
 import requests from "../lib/request";
@@ -9,6 +10,10 @@ import { HOME } from "./../lib/routes";
 import getInitials from "../lib/get-initials";
 import shortened from "../lib/shorten-text";
 import Card from "../components/card";
+import FooterContainer from "../containers/footer";
+import Player from "../components/player/index";
+import { TrailerContext } from "../context/trailer";
+import { FirebaseContext } from "../context/firebase";
 
 //& Main page container - Browse
 const BrowseContainer = ({ slides }) => {
@@ -18,8 +23,11 @@ const BrowseContainer = ({ slides }) => {
   const [loading, setLoading] = useState(true);
   const [banner, setBanner] = useState("");
   const [slideRows, setSlideRows] = useState([]);
+  const { videoId } = useContext(TrailerContext);
 
-  const authUser = getAuth().currentUser || {};
+  const { firebaseApp } = useContext(FirebaseContext);
+  const authUser = getAuth(firebaseApp).currentUser || {};
+
   const { Trending } = useContent(`${requests.fetchTrending}`, "Trending");
 
   useEffect(() => {
@@ -35,9 +43,25 @@ const BrowseContainer = ({ slides }) => {
     setSlideRows((prevSlide) => slides[category]);
   }, [slides, category]);
 
-  function signOut() {
-    return getAuth().signOut;
+  //& logout
+  function logout() {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => console.log("signout sucessful"))
+      .catch((err) => console.log(err));
   }
+
+  //& movie filter
+  useEffect(() => {
+    const fuse = new Fuse(slideRows, { keys: ["data.title", "data.overview", "data.original_title", "data.original_name"] });
+    const results = fuse.search(searchTerm).map(({ item }) => item);
+
+    if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
+      setSlideRows(results);
+    } else {
+      setSlideRows(slides[category]);
+    }
+  }, [category, searchTerm, slideRows, slides]);
 
   return profile.displayName ? (
     <>
@@ -63,7 +87,7 @@ const BrowseContainer = ({ slides }) => {
                   <Header.Picture src={authUser.photoURL} />
                   <Header.Links>{getInitials(authUser.displayName)}</Header.Links>
                 </Header.Group>
-                <Header.Links onClick={signOut}>Sign out</Header.Links>
+                <Header.Links onClick={logout}>Sign out</Header.Links>
               </Header.Dropdown>
             </Header.Profile>
           </Header.Group>
@@ -81,7 +105,7 @@ const BrowseContainer = ({ slides }) => {
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
               {slideItem.data.map((item) => (
-                <Card.Item key={item.id} item={item}>
+                <Card.Item key={item.id} item={item} itemTitle={slideItem.title}>
                   <Card.Image src={`${requests.img_url}${item?.poster_path}` ?? `${requests.img_url}${item?.backdrop_path}`} />
                   <Card.Meta>
                     <Card.SubTitle>{item?.title ?? item.original_title ?? item?.original_name}</Card.SubTitle>
@@ -91,10 +115,17 @@ const BrowseContainer = ({ slides }) => {
               ))}
             </Card.Entities>
 
-            <Card.Feature category={category} />
+            <Card.Feature category={category}>
+              <Player>
+                <Player.Button />
+                <Player.Video src={videoId} />
+              </Player>
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={authUser} setProfile={setProfile} />
