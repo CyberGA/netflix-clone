@@ -81,7 +81,7 @@ export const Feature = styled.div`
   flex-direction: row;
   background-image: url(${({ src }) => src});
   background-size: cover;
-  background-position: top left;
+  background-position: left center;
   position: relative;
   /* height: 360px; */
   height: auto;
@@ -125,9 +125,9 @@ export const FeatureClose = styled.button`
 `;
 
 export const Maturity = styled.div`
-  background-color: ${({ rating }) => (rating === true ? "red" : "green")};
-  border-radius: 15px;
-  width: 20px;
+  background-color: ${({ rating }) => (rating === true ? "rgba(255,0,0,0.5)" : "rgba(0,255,0,0.5)")};
+  border-radius: 20px;
+  width: fit-content;
   padding: 5px;
   text-align: center;
   color: #fff;
