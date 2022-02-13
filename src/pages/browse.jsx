@@ -3,8 +3,15 @@ import BrowseContainer from "../containers/browse";
 import useContent from "../hooks/use-content";
 import requests from "../lib/request";
 import SelectionFilter from "../lib/selection-filter";
+import { positions, Provider } from "react-alert";
+import AlertTemplate from "react-alert-template-basic";
+import Trailer from "../context/trailer";
 
 export default function Browse() {
+  const options = {
+    timeout: 5000,
+    position: positions.BOTTOM_CENTER,
+  };
 
   //& Variety of movies
   const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
@@ -21,8 +28,10 @@ export default function Browse() {
   const slides = SelectionFilter({ Action, Anime, Trending, Comedy, NetflixOriginals, TopRated, Crime, Horror, Romance, Documentaries });
 
   return (
-    <>
-      <BrowseContainer slides={slides} />
-    </>
+    <Provider template={AlertTemplate} {...options}>
+      <Trailer>
+        <BrowseContainer slides={slides} />
+      </Trailer>
+    </Provider>
   );
 }
