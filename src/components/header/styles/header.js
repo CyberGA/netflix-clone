@@ -17,6 +17,14 @@ export const Container = styled.div`
   }
 `;
 
+export const StickyContainer = styled(Container)`
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+`;
+
 export const Group = styled.div`
   display: flex;
   align-items: center;
