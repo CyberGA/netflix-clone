@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Browse from "./pages/browse";
 import Signin from "./pages/signin";
@@ -8,6 +8,7 @@ import * as ROUTES from "./lib/routes";
 import { IsUserValidated, ProtectedRoute } from "./lib/validate";
 import useAuthListener from "./hooks/use-auth-listener";
 import useForm from "./hooks/use-form";
+import NotFound from "./pages/404";
 
 function App() {
   const { user } = useAuthListener();
@@ -31,7 +32,9 @@ function App() {
           <Browse />
         </ProtectedRoute>
 
-        {/* <Route exact path={ROUTES.HOME} component={Home} /> */}
+        <Route exact path="*">
+          <NotFound />
+        </Route>
       </Switch>
     </Router>
   );
