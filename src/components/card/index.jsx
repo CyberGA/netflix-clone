@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useRef } from "react";
 import requests from "../../lib/request";
 import { useAlert } from "react-alert";
 import {
@@ -17,9 +17,12 @@ import {
   Meta,
   Entities,
   Item,
+  ScrollLeft,
+  ScrollRight,
 } from "./styles/card";
 import movieTrailer from "movie-trailer";
 import { TrailerContext } from "../../context/trailer";
+import "./styles/card.css";
 
 export const FeatureContext = createContext();
 
@@ -111,7 +114,41 @@ Card.Feature = function CardFeature({ children, category, ...props }) {
 };
 
 Card.Entities = function CardEntities({ children, ...props }) {
-  return <Entities {...props}>{children}</Entities>;
+  const movieRowRef = useRef();
+
+  //& Scrolling movies
+  function scrollLeft() {
+    if (movieRowRef.current) {
+      movieRowRef.current.scrollBy({
+        top: 0,
+        left: -150,
+        behavior: "smooth",
+      });
+    }
+  }
+  function scrollRight() {
+    if (movieRowRef.current) {
+      movieRowRef.current.scrollBy({
+        top: 0,
+        left: 150,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  return (
+    <div className="entitiesRefContainer">
+      <div ref={movieRowRef} className="entitiesRef">
+        <ScrollLeft left={0} onClick={scrollLeft}>
+          <img src="/images/icons/caret-left.png" alt="slide-left" width={16} />
+        </ScrollLeft>
+        <Entities {...props}>{children}</Entities>
+        <ScrollRight right={0} onClick={scrollRight}>
+          <img src="/images/icons/caret-right.png" alt="slide-right" width={16} />
+        </ScrollRight>
+      </div>
+    </div>
+  );
 };
 
 Card.Item = function CardItem({ item, itemTitle, children, ...props }) {
