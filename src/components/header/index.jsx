@@ -17,6 +17,7 @@ import {
   Links,
   PlayButton,
   Group,
+  StickyContainer,
 } from "./styles/header";
 export default function Header({ bg, children, ...props }) {
   return bg ? <Background {...props}>{children}</Background> : children;
@@ -43,6 +44,10 @@ Header.FeautureTitle = function HeaderFeautureTitle({ children, ...props }) {
 
 Header.Frame = function HeaderFrame({ children, ...props }) {
   return <Container {...props}>{children}</Container>;
+};
+
+Header.StickyFrame = function HeaderStickyFrame({ children, ...props }) {
+  return <StickyContainer {...props}>{children}</StickyContainer>;
 };
 
 Header.Picture = function HeaderPicture({ src, ...props }) {
