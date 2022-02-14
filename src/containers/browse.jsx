@@ -46,9 +46,7 @@ const BrowseContainer = ({ slides }) => {
   //& logout
   function logout() {
     const auth = getAuth();
-    signOut(auth)
-      .then(() => console.log("signout sucessful"))
-      .catch((err) => console.log(err));
+    signOut(auth).catch((err) => console.log(err));
   }
 
   //& movie filter
@@ -61,7 +59,8 @@ const BrowseContainer = ({ slides }) => {
     } else {
       setSlideRows(slides[category]);
     }
-  }, [category, searchTerm, slideRows, slides]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTerm]);
 
   return profile.displayName ? (
     <>
