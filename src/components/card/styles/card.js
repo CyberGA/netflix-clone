@@ -5,7 +5,7 @@ export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
   font-weight: bold;
-  margin: 0 56px 0;
+  margin: 0 56px -40px;
 `;
 
 export const FeatureText = styled.p`
@@ -106,7 +106,7 @@ export const Feature = styled.div`
 `;
 
 export const FeatureTitle = styled(Title)`
-  margin-left: 0;
+  margin: 0 0 10px 0;
 `;
 
 export const FeatureClose = styled.button`
@@ -140,7 +140,8 @@ export const Maturity = styled.div`
 export const Content = styled.div`
   margin: 56px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
   max-width: 500px;
   line-height: normal;
 
@@ -164,6 +165,45 @@ export const Entities = styled.div`
   flex-direction: row;
 `;
 
+export const Scroll = styled.div`
+  position: absolute;
+  top: 0;
+  z-index: 109;
+  background: rgba(0, 0, 0, 0.5);
+  height: 80%;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  jsutify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 40px;
+
+  img {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+
+    img {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const ScrollLeft = styled(Scroll)`
+  left: 0;
+`;
+
+export const ScrollRight = styled(Scroll)`
+  right: 0;
+`;
+
 export const Item = styled.div`
   display: flex;
   flex-direction: column;
@@ -173,7 +213,7 @@ export const Item = styled.div`
   transition: transform 0.2s;
 
   &:hover ${Image}, &:hover ${Meta} {
-    transform: scale(1.3);
+    transform: scale(1.2);
     z-index: 99;
   }
 
@@ -185,7 +225,7 @@ export const Item = styled.div`
   }
 
   &:first-of-type {
-    margin-left: 56px;
+    margin-left: 26px;
 
     @media (max-width: 1000px) {
       margin-left: 30px;
