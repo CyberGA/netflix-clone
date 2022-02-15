@@ -7,6 +7,7 @@ import Form from "../components/form";
 import { HomeBgGradient } from "../components/header/styles/header";
 import { signupAuth } from "../service/auth";
 
+//& Sign up page
 export default function Signup({ signupForm: { onChange, form, signupFormValid, resetForm } }) {
   const history = useHistory();
 
