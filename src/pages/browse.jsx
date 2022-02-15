@@ -13,7 +13,7 @@ export default function Browse() {
     position: positions.BOTTOM_CENTER,
   };
 
-  //& Variety of movies
+  //& Variety of movies page
   const { Action } = useContent(`${requests.fetchActionMovies}`, "Action");
   const { Anime } = useContent(`${requests.fetchAnime}`, "Anime");
   const { Trending } = useContent(`${requests.fetchTrending}`, "Trending");
