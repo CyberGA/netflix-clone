@@ -7,6 +7,7 @@ import Form from "../components/form";
 import { HomeBgGradient } from "../components/header/styles/header";
 import { signinAuth } from "./../service/auth";
 
+//& Sign in page
 export default function Signin({ loginForm: { onChange, form, loginFormNotValid, resetForm } }) {
   const history = useHistory();
   const { firebaseApp } = useContext(FirebaseContext);
