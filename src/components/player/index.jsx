@@ -17,7 +17,6 @@ export default function Player({ children, ...props }) {
 
 Player.Video = function PlayerVideo({ src, ...props }) {
   const { showPlayer, setShowPlayer } = useContext(PlayerContext);
-  console.log(src);
 
   const opts = {
     height: `${window.innerHeight * 0.6}`,
@@ -29,7 +28,7 @@ Player.Video = function PlayerVideo({ src, ...props }) {
     ? ReactDOM.createPortal(
         <Overlay onClick={() => setShowPlayer(false)} {...props}>
           <Inner>
-            <Youtube videoId={src} opts={opts} />
+            <Youtube videoId={src} opts={opts} onError={() => setShowPlayer(false)} />
             <Close>
               <img src="/images/icons/close-slim.png" alt="close" />
             </Close>
