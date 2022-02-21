@@ -24,6 +24,7 @@ Player.Video = function PlayerVideo({ src, ...props }) {
     playerVars: { autoplay: 1, origin: window.location.origin.toString() },
   };
 
+  //& Popup to play video with youtube player
   return showPlayer
     ? ReactDOM.createPortal(
         <Overlay onClick={() => setShowPlayer(false)} {...props}>
