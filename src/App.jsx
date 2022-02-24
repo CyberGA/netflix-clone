@@ -1,33 +1,42 @@
 import React from "react";
-import "./App.css";
-import Row from "./Row";
-import requests from "./requests";
-import Banner from "./Banner";
-import Nav from './Nav'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Browse from "./pages/browse";
+import Signin from "./pages/signin";
+import Signup from "./pages/signup";
+import * as ROUTES from "./lib/routes";
+import { IsUserValidated, ProtectedRoute } from "./lib/validate";
+import useAuthListener from "./hooks/use-auth-listener";
+import useForm from "./hooks/use-form";
+import NotFound from "./pages/404";
 
 function App() {
+  const { user } = useAuthListener();
+
   return (
-    <main>
-      <div className="App">
-      
-        <Nav />
-        <Banner />
-        <Row
-          title="NETFLIX ORIGINALS"
-          fetchUrl={requests.fetchNeflixOriginals}
-          isLargeRow
-        />
-        <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-        <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-        <Row title="Crime" fetchUrl={requests.fetchCrime} />
-        <Row title="Anime" fetchUrl={requests.fetchAnime} />
-        <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-        <Row title="Comedies" fetchUrl={requests.fetchComedyMovies} />
-        <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-        <Row title="Romance" fetchUrl={requests.fetchRomance} />
-        <Row title="Tv Movie" fetchUrl={requests.fetchTvMovie} />
-      </div>
-    </main>
+    <Router>
+      <Switch>
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.HOME}>
+          <Home />
+        </IsUserValidated>
+
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_IN}>
+          <Signin loginForm={useForm()} />
+        </IsUserValidated>
+
+        <IsUserValidated exact user={user} loggedInPath={ROUTES.BROWSE} path={ROUTES.SIGN_UP}>
+          <Signup signupForm={useForm()} />
+        </IsUserValidated>
+
+        <ProtectedRoute exact user={user} path={ROUTES.BROWSE}>
+          <Browse />
+        </ProtectedRoute>
+
+        <Route exact path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

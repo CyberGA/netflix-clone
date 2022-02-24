@@ -1,0 +1,12 @@
+.entitiesRefContainer {
+  position: relative;
+  user-select: none;
+}
+.entitiesRef {
+  overflow-y: hidden;
+  padding: 40px 0;
+}
+
+.entitiesRef::-webkit-scrollbar {
+  display: none;
+}
