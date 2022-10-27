@@ -1,0 +1,200 @@
+[debug] [2022-09-28T18:22:27.036Z] ----------------------------------------------------------------------
+[debug] [2022-09-28T18:22:27.040Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-28T18:22:27.040Z] CLI Version:   11.11.0
+[debug] [2022-09-28T18:22:27.041Z] Platform:      win32
+[debug] [2022-09-28T18:22:27.041Z] Node Version:  v16.14.2
+[debug] [2022-09-28T18:22:27.042Z] Time:          Wed Sep 28 2022 19:22:27 GMT+0100 (West Africa Standard Time)
+[debug] [2022-09-28T18:22:27.043Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-28T18:22:27.230Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-28T18:22:27.231Z] > authorizing via signed-in user (etomu.joshua@gmail.com)
+[debug] [2022-09-28T18:22:27.231Z] [iam] checking project netflix-clone-398b6 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-28T18:22:27.239Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions [none]
+[debug] [2022-09-28T18:22:27.240Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions x-goog-quota-user=projects/netflix-clone-398b6
+[debug] [2022-09-28T18:22:27.241Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-28T18:22:33.607Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions 200
+[debug] [2022-09-28T18:22:33.607Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-28T18:22:33.612Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 [none]
+[debug] [2022-09-28T18:22:39.555Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 200
+[debug] [2022-09-28T18:22:39.558Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 {"projectId":"netflix-clone-398b6","projectNumber":"482723254815","displayName":"Netflix-clone","name":"projects/netflix-clone-398b6","resources":{"hostingSite":"netflix-clone-398b6","realtimeDatabaseInstance":"netflix-clone-398b6","storageBucket":"netflix-clone-398b6.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_13255031-89ab-42e4-8c22-456763ff6e29"}
+[info] 
+[info] === Deploying to 'netflix-clone-398b6'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-09-28T18:22:39.576Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 [none]
+[debug] [2022-09-28T18:22:44.019Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 200
+[debug] [2022-09-28T18:22:44.019Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 {"projectId":"netflix-clone-398b6","projectNumber":"482723254815","displayName":"Netflix-clone","name":"projects/netflix-clone-398b6","resources":{"hostingSite":"netflix-clone-398b6","realtimeDatabaseInstance":"netflix-clone-398b6","storageBucket":"netflix-clone-398b6.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_13255031-89ab-42e4-8c22-456763ff6e29"}
+[debug] [2022-09-28T18:22:44.035Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions [none]
+[debug] [2022-09-28T18:22:44.035Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-09-28T18:22:51.545Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions 200
+[debug] [2022-09-28T18:22:51.546Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions {"name":"projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[netflix-clone-398b6]: beginning deploy... 
+[info] i  hosting[netflix-clone-398b6]: found 38 files in build 
+[debug] [2022-09-28T18:22:51.609Z] [hosting] uploading with 200 concurrency
+[debug] [2022-09-28T18:22:51.912Z] [hosting] hash cache [YnVpbGQ] stored for 38 files
+[debug] [2022-09-28T18:22:51.912Z] [hosting][hash queue][FINAL] {"max":289,"min":3,"avg":13.342105263157896,"active":0,"complete":38,"success":38,"errored":0,"retried":0,"total":38,"elapsed":300}
+[debug] [2022-09-28T18:22:51.913Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63:populateFiles [none]
+[debug] [2022-09-28T18:22:51.914Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63:populateFiles {"files":{"/favicon.ico":"1af038812ed24c5dfba387e81a75142ed2d092e4094aa827e98ad3fe807e2228","/images/icons/add.png":"af605dd2cd30be5f639972e20305fc05a865e5ce31f26b78fd6e667daa2e06ca","/images/icons/caret-left.png":"bd95c8fb24b797ba7f982eb04fecd28bf68226d8de9a12a06119fd9517671bd5","/images/icons/caret-right.png":"e5e21c94815b4ed5a870ff1dbc51e21ff98d3ed69d686836040fb94e631c48e8","/images/icons/chevron-right.png":"4eabaea61548b751bd5eec282950c2262551f7ba3fa8c604bf67f12dfff81c0a","/images/icons/close-slim.png":"ee40a5df85c99e173ed5314030aceaa95fab15c5340cfaf56ba851bcb5c5a01d","/images/icons/close.png":"e141b24bbef5b5009880180a2d1225e7c1a208373cbf7cc6a6ca5ed4284a307b","/images/icons/search.png":"28f9b74c969aa190a1d85659602b637fa34fb945ede1d52b33e87ef261728a44","/images/misc/device-pile.png":"6da7355415f7df85ad401063aa845cb1c08bb737e6b889395e220de56d1982ac","/images/misc/FB-f-Logo__blue_57.png":"9abf567ea0cd5313c7ff715a82e24e4ebd26d328ea5d7301ef24db238432deaa","/images/misc/home-bg.jpg":"d2982be881483fb4e06830b3412af0aefc1e52605818867c9fe783661e837fe7","/images/misc/home-bg2.jpg":"60d8e6921e09efe5e04d6ef76d67db9fa07c0dc05971b4f2b198975140acf0c6","/images/misc/home-bg3.jpg":"b826eb261aa121100b0743fa0bd667e066b839ac89a8b81d6c6a0a223add5f9e","/images/misc/home-bg4.jpg":"05c46d887133f6f9a574f9a7c6517e9ac6c050e4968867c39a83e394c5d38c67","/images/misc/home-imac.jpg":"a218da93e8a841bfd6636914d0b73af43623410b07eb90f33fc0eaa79ea10e8f","/images/misc/home-mobile.jpg":"c44411eb09f7521093832852a435f2eeb6b79d78cd978eb1c627cc9877e100d4","/images/misc/home-tv.jpg":"d6365ac8f5f42d18601e0c9ace9c97d72ca88987c3dc44377449a4c76ce1c0ef","/images/misc/joker1.jpg":"865a8fbb9a270658216a3c36777b8aec1a041068d51f629de8d2f9f1665d17fd","/images/misc/kiddo.png":"8c2922acff503d9afda6454bda3730e16b857327cfb24e07388970a5933f0d86","/images/misc/loading.gif":"b187058e4cafa4d117f859c863f64818826c2005ef8fc40f7163fb6cf596224b","/images/misc/Netflix-logo.svg":"8d8dc909b7673c73ac081c486a6121c114ce3d6a74316361a4bca5b5b1273e35","/images/misc/spinner.png":"57bf889334342b4e764cb39af6f03938f4423a49dc3fa5cd00295adcd7fa4b98","/images/misc/tv-bg.png":"51abf03b4eda3c1d694ef63b2d043b0d8930a7e907ab0e13bf264c05c127a579","/images/misc/video-mobile.gif":"c90654ca4d38184f6f0a9a86f6e1326a2b325e166973f8a3b0c12e7273d5615d","/images/misc/video_devices.gif":"f40e98227314cf34e2e26a8f90859fd4c611a787c1fc403a1e1bda994580d78c","/images/misc/video_tv.gif":"05e7a1a7000533eb85c71c52e14c4a3802530bf162c50f54f83ccadba8fa7fd1","/images/user/1.png":"d1a08e30cd951076abf0085a711367e5f4884f92f68f7935abbd4cd637fff0ef","/images/user/2.png":"bd8f7d9d71d953e8ca570564a50672e216d3b0e0ece0fc3101564526e43aa430","/images/user/3.png":"ff357e4a300c675399e148c6eedf70ed1e2620b7b5637135ae297b8c46d25148","/images/user/4.png":"e43561526cfd8101eed6d771a8ca3f053c31759ed5a844693670297a096cb342","/images/user/5.png":"f335417ff95fc011025df400ee259acee0ee1dd2d0fdb88a8c40700c714c7fb6","/asset-manifest.json":"c14f8a8fdead14d0c7ef7ef7a07dfba93403c106b215a6d92430ff5b121c8ba7","/index.html":"daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249","/static/css/main.a74ea7af.css":"5797260f34429ab6bfd550bd4200bd20ac797ab94e1233569d81e366a9840ed5","/static/css/main.a74ea7af.css.map":"770fe25f4f345d9001a14d547b9413deed4ebd73ea236041cb27218a7717ad6c","/static/js/main.275d6a15.js.LICENSE.txt":"448373010353fd5c8ef1b15e923385d092aa1b7b5c8941b59c8254ba275f4e4c","/static/js/main.275d6a15.js":"1b44bc53676b2ef40bbc575e678c51bf5629c3fcd8c116aca1602c954f5da46a","/static/js/main.275d6a15.js.map":"f2414aed78b7cd1d56fd84e1d0c0d9317fe823e76462ecb3b4c1d2761a5df89f"}}
+[debug] [2022-09-28T18:22:57.765Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63:populateFiles 200
+[debug] [2022-09-28T18:22:57.766Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63:populateFiles {"uploadRequiredHashes":["daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/2c352202d965fe63/files"}
+[debug] [2022-09-28T18:22:57.769Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/2c352202d965fe63/files/daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249 [none]
+[debug] [2022-09-28T18:22:57.769Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/2c352202d965fe63/files/daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249 [stream]
+[debug] [2022-09-28T18:22:57.774Z] [hosting][populate queue][FINAL] {"max":5858,"min":5858,"avg":5858,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":5864}
+[debug] [2022-09-28T18:22:57.774Z] [hosting] uploads queued: 1
+[debug] [2022-09-28T18:23:06.041Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/2c352202d965fe63/files/daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249 200
+[debug] [2022-09-28T18:23:06.043Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/2c352202d965fe63/files/daa10355205da96b5743af1ac07d38edb52fe3211c09a62ea99e91235c37a249 [stream]
+[debug] [2022-09-28T18:23:06.043Z] [hosting][upload queue][FINAL] {"max":8276,"min":8276,"avg":8276,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":8276}
+[info] +  hosting[netflix-clone-398b6]: file upload complete 
+[debug] [2022-09-28T18:23:06.050Z] [hosting] deploy completed after 14488ms
+[debug] [2022-09-28T18:23:06.067Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "netflix-clone-398b6"
+    },
+    "site": "netflix-clone-398b6",
+    "version": "projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63"
+  }
+]
+[info] i  hosting[netflix-clone-398b6]: finalizing version... 
+[debug] [2022-09-28T18:23:06.072Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63 updateMask=status%2Cconfig
+[debug] [2022-09-28T18:23:06.073Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-09-28T18:23:11.851Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63 200
+[debug] [2022-09-28T18:23:11.851Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63 {"name":"projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:22:45.760470Z","createUser":{"email":"etomu.joshua@gmail.com"},"finalizeTime":"2022-09-28T18:23:06.462810Z","finalizeUser":{"email":"etomu.joshua@gmail.com"}}
+[debug] [2022-09-28T18:23:11.851Z] [hosting] finalized version for netflix-clone-398b6:[object Object]
+[info] +  hosting[netflix-clone-398b6]: version finalized 
+[info] i  hosting[netflix-clone-398b6]: releasing new version... 
+[debug] [2022-09-28T18:23:11.855Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases versionName=projects%2F482723254815%2Fsites%2Fnetflix-clone-398b6%2Fversions%2F2c352202d965fe63
+[debug] [2022-09-28T18:23:11.856Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases {"message":null}
+[debug] [2022-09-28T18:23:17.602Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases 200
+[debug] [2022-09-28T18:23:17.603Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases {"name":"projects/482723254815/sites/netflix-clone-398b6/releases/1664389391682075","version":{"name":"projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:22:45.760470Z","createUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"},"finalizeTime":"2022-09-28T18:23:06.462810Z","finalizeUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}},"type":"DEPLOY","releaseTime":"2022-09-28T18:23:11.682075746Z","releaseUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}}
+[debug] [2022-09-28T18:23:17.604Z] [hosting] release: {"name":"projects/482723254815/sites/netflix-clone-398b6/releases/1664389391682075","version":{"name":"projects/482723254815/sites/netflix-clone-398b6/versions/2c352202d965fe63","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:22:45.760470Z","createUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"},"finalizeTime":"2022-09-28T18:23:06.462810Z","finalizeUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}},"type":"DEPLOY","releaseTime":"2022-09-28T18:23:11.682075746Z","releaseUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}}
+[info] +  hosting[netflix-clone-398b6]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/netflix-clone-398b6/overview
+[info] Hosting URL: https://netflix-clone-398b6.web.app
+[debug] [2022-09-28T18:23:32.159Z] Error: Timed out.
+    at Timeout.<anonymous> (C:\Users\oluwa\AppData\Roaming\nvm\v16.14.2\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2022-09-28T18:38:48.793Z] ----------------------------------------------------------------------
+[debug] [2022-09-28T18:38:48.795Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-28T18:38:48.796Z] CLI Version:   11.11.0
+[debug] [2022-09-28T18:38:48.796Z] Platform:      win32
+[debug] [2022-09-28T18:38:48.796Z] Node Version:  v16.14.2
+[debug] [2022-09-28T18:38:48.797Z] Time:          Wed Sep 28 2022 19:38:48 GMT+0100 (West Africa Standard Time)
+[debug] [2022-09-28T18:38:48.798Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-28T18:38:48.869Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-28T18:38:48.870Z] > authorizing via signed-in user (etomu.joshua@gmail.com)
+[debug] [2022-09-28T18:38:48.870Z] [iam] checking project netflix-clone-398b6 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-28T18:38:48.873Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions [none]
+[debug] [2022-09-28T18:38:48.873Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions x-goog-quota-user=projects/netflix-clone-398b6
+[debug] [2022-09-28T18:38:48.873Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-28T18:38:55.845Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions 200
+[debug] [2022-09-28T18:38:55.845Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-398b6:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-28T18:38:55.846Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 [none]
+[debug] [2022-09-28T18:39:04.489Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 200
+[debug] [2022-09-28T18:39:04.490Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 {"projectId":"netflix-clone-398b6","projectNumber":"482723254815","displayName":"TrailerWatch","name":"projects/netflix-clone-398b6","resources":{"hostingSite":"netflix-clone-398b6","realtimeDatabaseInstance":"netflix-clone-398b6","storageBucket":"netflix-clone-398b6.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_8b097850-bc85-437b-afc9-b9fb83cd4f30"}
+[info] 
+[info] === Deploying to 'netflix-clone-398b6'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-09-28T18:39:04.495Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 [none]
+[debug] [2022-09-28T18:39:08.673Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 200
+[debug] [2022-09-28T18:39:08.673Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflix-clone-398b6 {"projectId":"netflix-clone-398b6","projectNumber":"482723254815","displayName":"TrailerWatch","name":"projects/netflix-clone-398b6","resources":{"hostingSite":"netflix-clone-398b6","realtimeDatabaseInstance":"netflix-clone-398b6","storageBucket":"netflix-clone-398b6.appspot.com","locationId":"europe-west"},"state":"ACTIVE","etag":"1_8b097850-bc85-437b-afc9-b9fb83cd4f30"}
+[debug] [2022-09-28T18:39:08.676Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions [none]
+[debug] [2022-09-28T18:39:08.676Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-09-28T18:39:16.708Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions 200
+[debug] [2022-09-28T18:39:16.708Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions {"name":"projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[netflix-clone-398b6]: beginning deploy... 
+[info] i  hosting[netflix-clone-398b6]: found 38 files in build 
+[debug] [2022-09-28T18:39:16.743Z] [hosting] uploading with 200 concurrency
+[debug] [2022-09-28T18:39:17.041Z] [hosting] hash cache [YnVpbGQ] stored for 38 files
+[debug] [2022-09-28T18:39:17.041Z] [hosting][hash queue][FINAL] {"max":277,"min":4,"avg":14.105263157894736,"active":0,"complete":38,"success":38,"errored":0,"retried":0,"total":38,"elapsed":293}
+[debug] [2022-09-28T18:39:17.041Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd:populateFiles [none]
+[debug] [2022-09-28T18:39:17.042Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd:populateFiles {"files":{"/favicon.ico":"1af038812ed24c5dfba387e81a75142ed2d092e4094aa827e98ad3fe807e2228","/images/icons/add.png":"af605dd2cd30be5f639972e20305fc05a865e5ce31f26b78fd6e667daa2e06ca","/images/icons/caret-left.png":"bd95c8fb24b797ba7f982eb04fecd28bf68226d8de9a12a06119fd9517671bd5","/images/icons/caret-right.png":"e5e21c94815b4ed5a870ff1dbc51e21ff98d3ed69d686836040fb94e631c48e8","/images/icons/chevron-right.png":"4eabaea61548b751bd5eec282950c2262551f7ba3fa8c604bf67f12dfff81c0a","/images/icons/close-slim.png":"ee40a5df85c99e173ed5314030aceaa95fab15c5340cfaf56ba851bcb5c5a01d","/images/icons/close.png":"e141b24bbef5b5009880180a2d1225e7c1a208373cbf7cc6a6ca5ed4284a307b","/images/icons/search.png":"28f9b74c969aa190a1d85659602b637fa34fb945ede1d52b33e87ef261728a44","/images/misc/device-pile.png":"6da7355415f7df85ad401063aa845cb1c08bb737e6b889395e220de56d1982ac","/images/misc/FB-f-Logo__blue_57.png":"9abf567ea0cd5313c7ff715a82e24e4ebd26d328ea5d7301ef24db238432deaa","/images/misc/home-bg.jpg":"d2982be881483fb4e06830b3412af0aefc1e52605818867c9fe783661e837fe7","/images/misc/home-bg2.jpg":"60d8e6921e09efe5e04d6ef76d67db9fa07c0dc05971b4f2b198975140acf0c6","/images/misc/home-bg3.jpg":"b826eb261aa121100b0743fa0bd667e066b839ac89a8b81d6c6a0a223add5f9e","/images/misc/home-bg4.jpg":"05c46d887133f6f9a574f9a7c6517e9ac6c050e4968867c39a83e394c5d38c67","/images/misc/home-imac.jpg":"a218da93e8a841bfd6636914d0b73af43623410b07eb90f33fc0eaa79ea10e8f","/images/misc/home-mobile.jpg":"c44411eb09f7521093832852a435f2eeb6b79d78cd978eb1c627cc9877e100d4","/images/misc/home-tv.jpg":"d6365ac8f5f42d18601e0c9ace9c97d72ca88987c3dc44377449a4c76ce1c0ef","/images/misc/joker1.jpg":"865a8fbb9a270658216a3c36777b8aec1a041068d51f629de8d2f9f1665d17fd","/images/misc/kiddo.png":"8c2922acff503d9afda6454bda3730e16b857327cfb24e07388970a5933f0d86","/images/misc/loading.gif":"b187058e4cafa4d117f859c863f64818826c2005ef8fc40f7163fb6cf596224b","/images/misc/Netflix-logo.svg":"8d8dc909b7673c73ac081c486a6121c114ce3d6a74316361a4bca5b5b1273e35","/images/misc/spinner.png":"57bf889334342b4e764cb39af6f03938f4423a49dc3fa5cd00295adcd7fa4b98","/images/misc/tv-bg.png":"51abf03b4eda3c1d694ef63b2d043b0d8930a7e907ab0e13bf264c05c127a579","/images/misc/video-mobile.gif":"c90654ca4d38184f6f0a9a86f6e1326a2b325e166973f8a3b0c12e7273d5615d","/images/misc/video_devices.gif":"f40e98227314cf34e2e26a8f90859fd4c611a787c1fc403a1e1bda994580d78c","/images/misc/video_tv.gif":"05e7a1a7000533eb85c71c52e14c4a3802530bf162c50f54f83ccadba8fa7fd1","/images/user/1.png":"d1a08e30cd951076abf0085a711367e5f4884f92f68f7935abbd4cd637fff0ef","/images/user/2.png":"bd8f7d9d71d953e8ca570564a50672e216d3b0e0ece0fc3101564526e43aa430","/images/user/3.png":"ff357e4a300c675399e148c6eedf70ed1e2620b7b5637135ae297b8c46d25148","/images/user/4.png":"e43561526cfd8101eed6d771a8ca3f053c31759ed5a844693670297a096cb342","/images/user/5.png":"f335417ff95fc011025df400ee259acee0ee1dd2d0fdb88a8c40700c714c7fb6","/asset-manifest.json":"1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045","/static/css/main.a74ea7af.css":"5797260f34429ab6bfd550bd4200bd20ac797ab94e1233569d81e366a9840ed5","/static/css/main.a74ea7af.css.map":"770fe25f4f345d9001a14d547b9413deed4ebd73ea236041cb27218a7717ad6c","/static/js/main.66b66cb7.js.LICENSE.txt":"448373010353fd5c8ef1b15e923385d092aa1b7b5c8941b59c8254ba275f4e4c","/index.html":"a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626","/static/js/main.66b66cb7.js":"19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f","/static/js/main.66b66cb7.js.map":"fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c"}}
+[debug] [2022-09-28T18:39:23.015Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd:populateFiles 200
+[debug] [2022-09-28T18:39:23.016Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd:populateFiles {"uploadRequiredHashes":["fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c","a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626","1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045","19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files"}
+[debug] [2022-09-28T18:39:23.017Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c [none]
+[debug] [2022-09-28T18:39:23.017Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c [stream]
+[debug] [2022-09-28T18:39:23.018Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626 [none]
+[debug] [2022-09-28T18:39:23.018Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626 [stream]
+[debug] [2022-09-28T18:39:23.019Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045 [none]
+[debug] [2022-09-28T18:39:23.020Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045 [stream]
+[debug] [2022-09-28T18:39:23.021Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f [none]
+[debug] [2022-09-28T18:39:23.021Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f [stream]
+[debug] [2022-09-28T18:39:23.022Z] [hosting][populate queue][FINAL] {"max":5979,"min":5979,"avg":5979,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":5984}
+[debug] [2022-09-28T18:39:23.022Z] [hosting] uploads queued: 4
+[debug] [2022-09-28T18:39:31.807Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626 200
+[debug] [2022-09-28T18:39:31.808Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/a4b4223715df01008ab52f3fdcf0ae1120b694bcd32bc9fa3d1e48adfaa7e626 [stream]
+[debug] [2022-09-28T18:39:32.092Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045 200
+[debug] [2022-09-28T18:39:32.092Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/1db0d0bac497e80a53e2ef1d309cb3aff225503b1445b7327404964d642da045 [stream]
+[debug] [2022-09-28T18:39:36.616Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f 200
+[debug] [2022-09-28T18:39:36.617Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/19f8a46b80adf64941107fe834e2a938db23b46f825ec3b93fc0d9372c418f9f [stream]
+[debug] [2022-09-28T18:39:39.570Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c 200
+[debug] [2022-09-28T18:39:39.571Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/netflix-clone-398b6/versions/c0b15a37d86421dd/files/fe6c23f15440b74803deda0073bbfde4b1542a8abe5626eebd6533d2128d006c [stream]
+[debug] [2022-09-28T18:39:39.572Z] [hosting][upload queue][FINAL] {"max":16556,"min":8792,"avg":12006,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":16556}
+[info] +  hosting[netflix-clone-398b6]: file upload complete 
+[debug] [2022-09-28T18:39:39.574Z] [hosting] deploy completed after 22864ms
+[debug] [2022-09-28T18:39:39.578Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "netflix-clone-398b6"
+    },
+    "site": "netflix-clone-398b6",
+    "version": "projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd"
+  }
+]
+[info] i  hosting[netflix-clone-398b6]: finalizing version... 
+[debug] [2022-09-28T18:39:39.581Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd updateMask=status%2Cconfig
+[debug] [2022-09-28T18:39:39.581Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-09-28T18:39:45.655Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd 200
+[debug] [2022-09-28T18:39:45.655Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd {"name":"projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:39:11.024029Z","createUser":{"email":"etomu.joshua@gmail.com"},"finalizeTime":"2022-09-28T18:39:40.420835Z","finalizeUser":{"email":"etomu.joshua@gmail.com"}}
+[debug] [2022-09-28T18:39:45.655Z] [hosting] finalized version for netflix-clone-398b6:[object Object]
+[info] +  hosting[netflix-clone-398b6]: version finalized 
+[info] i  hosting[netflix-clone-398b6]: releasing new version... 
+[debug] [2022-09-28T18:39:45.658Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases versionName=projects%2F482723254815%2Fsites%2Fnetflix-clone-398b6%2Fversions%2Fc0b15a37d86421dd
+[debug] [2022-09-28T18:39:45.659Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases {"message":null}
+[debug] [2022-09-28T18:39:53.186Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases 200
+[debug] [2022-09-28T18:39:53.187Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/482723254815/sites/netflix-clone-398b6/releases {"name":"projects/482723254815/sites/netflix-clone-398b6/releases/1664390386749276","version":{"name":"projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:39:11.024029Z","createUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"},"finalizeTime":"2022-09-28T18:39:40.420835Z","finalizeUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}},"type":"DEPLOY","releaseTime":"2022-09-28T18:39:46.749276556Z","releaseUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}}
+[debug] [2022-09-28T18:39:53.187Z] [hosting] release: {"name":"projects/482723254815/sites/netflix-clone-398b6/releases/1664390386749276","version":{"name":"projects/482723254815/sites/netflix-clone-398b6/versions/c0b15a37d86421dd","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-09-28T18:39:11.024029Z","createUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"},"finalizeTime":"2022-09-28T18:39:40.420835Z","finalizeUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}},"type":"DEPLOY","releaseTime":"2022-09-28T18:39:46.749276556Z","releaseUser":{"email":"etomu.joshua@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/ACNPEu-GRfiHVr0I3Kj9-xT7f0nH6rjhtXRwZ8OYQ-Ms6Q"}}
+[info] +  hosting[netflix-clone-398b6]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/netflix-clone-398b6/overview
+[info] Hosting URL: https://netflix-clone-398b6.web.app
+[debug] [2022-09-28T18:40:08.694Z] Error: Timed out.
+    at Timeout.<anonymous> (C:\Users\oluwa\AppData\Roaming\nvm\v16.14.2\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
