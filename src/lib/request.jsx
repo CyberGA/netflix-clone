@@ -1,6 +1,6 @@
-import { TMDB_KEY } from "./secret";
+// import { TMDB_KEY } from "./secret";
 
-const API_KEY = TMDB_KEY;
+const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
 //& Getting different movie types
 const requests = {
