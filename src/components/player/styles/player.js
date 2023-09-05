@@ -13,6 +13,7 @@ export const Overlay = styled.div`
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   margin: 0;
+  z-index: 9999;
 `;
 
 export const Inner = styled.div`
@@ -44,6 +45,7 @@ export const Close = styled.button`
 export const Button = styled.button`
   background-color: #e50914;
   border-color: #ff0a10;
+  color: #fff;
   width: 114px;
   height: 45px;
   border-radius: 5px;
@@ -53,10 +55,12 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   padding-left: 0;
+  transition: 300ms ease-in-out;
 
   &:hover {
     transform: scale(1.05);
     background-color: #ff0a16;
     color: #fff;
+    font-weight: bold;
   }
 `;

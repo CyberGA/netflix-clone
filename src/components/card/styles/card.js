@@ -5,12 +5,12 @@ export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
   font-weight: bold;
-  margin: 0 56px -40px;
+  margin: 0 56px -20px;
 `;
 
 export const FeatureText = styled.p`
   margin-left: 0;
-  color: #000;
+  color: #fff;
 `;
 
 export const Image = styled.img`
@@ -126,9 +126,9 @@ export const FeatureClose = styled.button`
 
 export const Maturity = styled.div`
   background-color: ${({ rating }) => (rating === true ? "rgba(255,0,0,0.5)" : "rgba(0,255,0,0.5)")};
-  border-radius: 20px;
+  border-radius: 100%;
   width: fit-content;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
   color: #fff;
   font-weight: bold;
@@ -139,8 +139,8 @@ export const Maturity = styled.div`
 
 export const Content = styled.div`
   margin: 56px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  padding: 20px 16px;
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   max-width: 500px;
   line-height: normal;
@@ -157,7 +157,6 @@ export const Meta = styled.div`
   bottom: 0;
   padding: 10px;
   background-color: #0000008f;
-  transition: transform 0.2s;
 `;
 
 export const Entities = styled.div`
@@ -174,7 +173,7 @@ export const Scroll = styled.div`
   width: fit-content;
   padding: 10px;
   display: flex;
-  jsutify-content: center;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   margin-top: 40px;
@@ -210,11 +209,15 @@ export const Item = styled.div`
   margin-right: 5px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: 500ms ease-in-out;
 
   &:hover ${Image}, &:hover ${Meta} {
     transform: scale(1.2);
     z-index: 99;
+  }
+
+  &:hover ${Meta} {
+    bottom: -22px;
   }
 
   @media (min-width: 1200px) {

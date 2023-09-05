@@ -30,9 +30,9 @@ Player.Video = function PlayerVideo({ src, ...props }) {
         <Overlay onClick={() => setShowPlayer(false)} {...props}>
           <Inner>
             <Youtube videoId={src} opts={opts} onError={() => setShowPlayer(false)} />
-            <Close>
+            {/* <Close>
               <img src="/images/icons/close-slim.png" alt="close" />
-            </Close>
+            </Close> */}
           </Inner>
         </Overlay>,
         document.body

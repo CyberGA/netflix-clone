@@ -153,23 +153,27 @@ export const Picture = styled.button`
   width: 32px;
   height: 32px;
   cursor: pointer;
+  border-radius: 4px;
 `;
 
 export const Dropdown = styled.div`
   display: none;
   background: #000;
   position: absolute;
-  padding: 10px;
+  padding: 16px 10px;
   width: 100px;
   top: 32px;
-  right: 4px;
+  right: -10px;
+  border-radius: 6px;
+  transition: 300ms ease-in-out;
+  border: 1px solid;
 
   ${Group} {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    /* &:last-of-type {
+      margin-bottom: 15px;
+    } */
 
     ${Links}, ${Picture} {
       cursor: default;
@@ -185,9 +189,11 @@ export const Dropdown = styled.div`
   p {
     font-size: 12px;
     margin-bottom: 0;
+    margin-block: 0;
+    transition: 300ms ease-in-out;
 
     &:hover {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 `;
@@ -241,7 +247,7 @@ export const SearchInput = styled.input`
   height: 30px;
   font-size: 14px;
   border-radius: 8px;
-  padding-left: 4px;
+  padding: 2px 10px;
   width: ${({ active }) => (active === true ? "150px" : "0")};
   visibility: ${({ active }) => (active === true ? "visible" : "hidden")};
   margin-left: ${({ active }) => (active === true ? "10px" : "0")};
